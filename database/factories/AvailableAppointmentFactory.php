@@ -4,16 +4,17 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\User;
+use App\Models\AvailableAppointment;
+use App\Models\Doctor;
 
-class UserFactory extends Factory
+class AvailableAppointmentFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = User::class;
+    protected $model = AvailableAppointment::class;
 
     /**
      * Define the model's default state.
@@ -21,13 +22,10 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->safeEmail(),
-            'password' => bcrypt('123456'),
-            'type' => fake()->randomElement(["admin","patient"]),
-            'image' => fake()->word(),
+            'user_id' => fake()->numberBetween(1, 50),
+            'date' => fake()->dateTime(),
+            'doctor_id' => Doctor::factory(),
             'status' => fake()->numberBetween(0, 1),
-            'dob' => fake()->date(),
         ];
     }
 }

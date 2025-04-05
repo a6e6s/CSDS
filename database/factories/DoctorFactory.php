@@ -4,16 +4,19 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\User;
+use App\Models\City;
+use App\Models\Doctor;
+use App\Models\Hospital;
+use App\Models\Specialty;
 
-class UserFactory extends Factory
+class DoctorFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = User::class;
+    protected $model = Doctor::class;
 
     /**
      * Define the model's default state.
@@ -22,12 +25,16 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'title' => fake()->sentence(4),
             'email' => fake()->safeEmail(),
-            'password' => bcrypt('123456'),
-            'type' => fake()->randomElement(["admin","patient"]),
+            'password' => fake()->password(),
             'image' => fake()->word(),
+            'cetifications' => fake()->text(),
+            'hospital_id' => Hospital::factory(),
+            'specialty_id' => Specialty::factory(),
+            'city_id' => City::factory(),
             'status' => fake()->numberBetween(0, 1),
-            'dob' => fake()->date(),
+            'updated_at' => fake()->dateTime(),
         ];
     }
 }

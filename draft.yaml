@@ -1,5 +1,6 @@
 models:
   Hospital:
+    id: id
     name: string
     address: text
     description: text
@@ -7,20 +8,18 @@ models:
     latitude: string
     longitude: string
     status: tinyInteger
-    create_at: dateTime
-    updated_at: dateTime
     phone: bigInteger
   User:
+    id: id
     name: string
     email: string
     password: string
-    type: enum:["admin","patient"] default:"patient"
+    type: enum:""admin"",""patient"" default:""patient""
     image: string nullable
     status: tinyInteger
     dob: date nullable
-    create_at: dateTime
-    updated_at: dateTime
   Doctor:
+    id: id foreign:available_appointments.doctor_id
     name: string
     title: string nullable
     email: string
@@ -31,44 +30,38 @@ models:
     specialty_id: bigInteger foreign:specialties.id
     city_id: bigInteger foreign:cities.id
     status: tinyInteger
-    create_at: dateTime
-    bio: text nullable
     updated_at: dateTime
   City:
+    id: id
     name: string
     status: tinyInteger
-    create_at: dateTime
-    updated_at: dateTime
   Specialty:
+    id: id
     name: string
     description: text
     logo: string nullable
     status: tinyInteger
-    create_at: dateTime
-    updated_at: dateTime
   Slide:
+    id: id
     title: string nullable
     subtitle: string:1000 nullable
     image_alt: string nullable
     image: string
     url: string nullable
     status: tinyInteger
-    create_at: dateTime
-    updated_at: dateTime
   Contact:
+    id: id
     name: string
     email: string
     body: mediumInteger
     status: tinyInteger
-    create_at: dateTime
-    updated_at: dateTime
   Page:
+    id: id
     title: string
     body: mediumInteger
     status: tinyInteger
-    create_at: dateTime
-    updated_at: dateTime
   Offer:
+    id: id
     title: string
     image: string
     price: float
@@ -78,85 +71,27 @@ models:
     status: tinyInteger
     end_at: dateTime
     start_date: dateTime
-    create_at: dateTime
-    updated_at: dateTime
   AvailableAppointment:
+    id: id
     user_id: bigInteger
     date: dateTime
     doctor_id: bigInteger foreign:doctors.id
     status: tinyInteger
-    create_at: dateTime
-    updated_at: dateTime
   Review:
+    id: id
     rating: integer
     body: text
     user_id: bigInteger foreign:users.id
     doctor_id: bigInteger foreign:doctors.id
     status: tinyInteger
-    create_at: dateTime
-    updated_at: dateTime
   Order:
-    time: mediumInteger
+    id: id
+    time: time
     date: string
     contact: string
+    patient: string foreign:users.id
     notes: text
+    offer_id: bigInteger nullable foreign:offers.id
+    appointmet_id: bigInteger nullable foreign:available_appointments.id
     user_id: bigInteger
     status: tinyInteger
-    create_at: dateTime
-    updated_at: dateTime
-    patient: string foreign:users.id
-    appointmet_id: bigInteger nullable foreign:available_appointments.id
-    offer_id: bigInteger nullable foreign:offers.id
-
-factories:
-  Hospital:
-  User:
-  Doctor:
-  City:
-  Specialty:
-  Slide:
-  Contact:
-  Page:
-  Offer:
-  AvailableAppointment:
-  Review:
-  Order:
-
-
-controllers:
-  Hospital:
-    resource: true
-    namespace: Admin
-  User:
-    resource: true
-    namespace: Admin
-  Doctor:
-    resource: true
-    namespace: Admin
-  City:
-    resource: true
-    namespace: Admin
-  Specialty:
-    resource: true
-    namespace: Admin
-  Slide:
-    resource: true
-    namespace: Admin
-  Contact:
-    resource: true
-    namespace: Admin
-  Page:
-    resource: true
-    namespace: Admin
-  Offer:
-    resource: true
-    namespace: Admin
-  AvailableAppointment:
-    resource: true
-    namespace: Admin
-  Review:
-    resource: true
-    namespace: Admin
-  Order:
-    resource: true
-    namespace: Admin

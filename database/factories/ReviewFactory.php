@@ -4,16 +4,18 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use App\Models\Doctor;
+use App\Models\Review;
 use App\Models\User;
 
-class UserFactory extends Factory
+class ReviewFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = User::class;
+    protected $model = Review::class;
 
     /**
      * Define the model's default state.
@@ -21,13 +23,11 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->safeEmail(),
-            'password' => bcrypt('123456'),
-            'type' => fake()->randomElement(["admin","patient"]),
-            'image' => fake()->word(),
+            'rating' => fake()->numberBetween(-10000, 10000),
+            'body' => fake()->text(),
+            'user_id' => User::factory(),
+            'doctor_id' => Doctor::factory(),
             'status' => fake()->numberBetween(0, 1),
-            'dob' => fake()->date(),
         ];
     }
 }

@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class User extends Model
+class Offer extends Model
 {
     use HasFactory;
 
@@ -15,22 +16,15 @@ class User extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'type',
+        'title',
         'image',
+        'price',
+        'new_price',
+        'body',
+        'hospital_id',
         'status',
-        'dob',
-    ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password',
+        'end_at',
+        'start_date',
     ];
 
     /**
@@ -40,7 +34,16 @@ class User extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'price' => 'float',
+        'new_price' => 'float',
+        'hospital_id' => 'integer',
         'status' => 'integer',
-        'dob' => 'date',
+        'end_at' => 'datetime',
+        'start_date' => 'datetime',
     ];
+
+    public function hospital(): BelongsTo
+    {
+        return $this->belongsTo(Hospital::class);
+    }
 }

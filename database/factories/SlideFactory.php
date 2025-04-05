@@ -4,16 +4,16 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\User;
+use App\Models\Slide;
 
-class UserFactory extends Factory
+class SlideFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = User::class;
+    protected $model = Slide::class;
 
     /**
      * Define the model's default state.
@@ -21,13 +21,12 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->safeEmail(),
-            'password' => bcrypt('123456'),
-            'type' => fake()->randomElement(["admin","patient"]),
+            'title' => fake()->sentence(4),
+            'subtitle' => fake()->regexify('[A-Za-z0-9]{1000}'),
+            'image_alt' => fake()->word(),
             'image' => fake()->word(),
+            'url' => fake()->url(),
             'status' => fake()->numberBetween(0, 1),
-            'dob' => fake()->date(),
         ];
     }
 }
