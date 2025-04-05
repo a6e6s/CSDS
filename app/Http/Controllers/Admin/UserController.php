@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -69,7 +70,7 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, User $user)
     {
         $data = $request->validated();
-        if ($request->password) unset($data['password']);
+        if (!$request->password) unset($data['password']);
         if ($request->password) $data['password'] = Hash::make($request->password);
         if (!$user->update($data)) {
             return redirect()->back()->with('error',  __('Error occurred while we trying to store your data. please try again'));
