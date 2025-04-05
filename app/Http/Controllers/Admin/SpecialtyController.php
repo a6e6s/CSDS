@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Specialty;
+use App\Http\Requests\StoreSpecialtyRequest;
+use App\Http\Requests\UpdateSpecialtyRequest;
 
 class SpecialtyController extends Controller
 {
@@ -26,7 +28,7 @@ class SpecialtyController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreSpecialtyRequest $request)
     {
         //
     }
@@ -34,7 +36,7 @@ class SpecialtyController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Specialty $specialty)
     {
         //
     }
@@ -42,7 +44,7 @@ class SpecialtyController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Specialty $specialty)
     {
         //
     }
@@ -50,7 +52,7 @@ class SpecialtyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateSpecialtyRequest $request, Specialty $specialty)
     {
         //
     }
@@ -58,7 +60,7 @@ class SpecialtyController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Specialty $specialty)
     {
         //
     }

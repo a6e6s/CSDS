@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\AvailableAppointment;
+use App\Http\Requests\StoreAvailableAppointmentRequest;
+use App\Http\Requests\UpdateAvailableAppointmentRequest;
 
 class AvailableAppointmentController extends Controller
 {
@@ -26,7 +28,7 @@ class AvailableAppointmentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreAvailableAppointmentRequest $request)
     {
         //
     }
@@ -34,7 +36,7 @@ class AvailableAppointmentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(AvailableAppointment $availableAppointment)
     {
         //
     }
@@ -42,7 +44,7 @@ class AvailableAppointmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(AvailableAppointment $availableAppointment)
     {
         //
     }
@@ -50,7 +52,7 @@ class AvailableAppointmentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateAvailableAppointmentRequest $request, AvailableAppointment $availableAppointment)
     {
         //
     }
@@ -58,7 +60,7 @@ class AvailableAppointmentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(AvailableAppointment $availableAppointment)
     {
         //
     }
