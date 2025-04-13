@@ -18,7 +18,7 @@ div {
 }
 
 .bg-brown {
-    background-color: #CCA16A;
+    background-color: #3587CB;
 }
 
 .bg-light-green {
@@ -26,11 +26,15 @@ div {
 }
 
 .bg-dark-green {
-    background-color: #CCA16A
+    background-color: #3587CB
 }
 
 .bg-green {
-    background-color: #238A78
+    background-color: #86DC5B
+}
+
+.text-green {
+    color: #86DC5B
 }
 
 html {
@@ -190,7 +194,7 @@ a.theme_hover:hover {
 
 a.theme_btn,
 .theme_btn {
-    background: #238A78;
+    background: #86DC5B;
     display: inline-block;
     padding: 10px 40px;
     margin: 20px 0;
@@ -243,7 +247,7 @@ header {
 header:before {
     content: '';
     position: absolute;
-    background: #CCA16A;
+    background: #3587CB;
     height: 50px;
     left: 0;
     width: 50%;
@@ -269,7 +273,7 @@ header:before {
 }
 
 .top_bar {
-    background: #CCA16A;
+    background: #3587CB;
     display: block;
     color: #FFF;
     line-height: 50px;
@@ -336,7 +340,7 @@ header:before {
     content: '';
     border-style: solid;
     border-width: 0 50px 124px 0;
-    border-color: transparent #cca16a transparent transparent;
+    border-color: transparent #3587CB transparent transparent;
     position: absolute;
     right: calc(100% - 6px);
 }
@@ -380,7 +384,7 @@ header:before {
     height: 2px;
     left: 100%;
     right: 0;
-    background: #6E4119;
+    background: #687685;
     bottom: 0;
     visibility: hidden;
     transition: all 0.4s ease 0s;
@@ -403,7 +407,7 @@ header:before {
 
 .main_menu>ul>li:hover>a,
 .main_menu>ul>li.active>a {
-    color: #6E4119;
+    color: #687685;
 }
 
 .main_menu>ul>li.has_submenu>a {
@@ -550,17 +554,17 @@ header:before {
     margin-bottom: 100px;
 }
 
-a.h_slider_btn {
+.h_slider_btn {
     display: inline-block;
-    background: #364744;
+    background: #86DC5B;
     border-radius: 4px;
     color: #FFF;
     padding: 10px 40px;
     border-radius: 40px;
 }
 
-a.h_slider_btn:hover {
-    background: #CCA16A;
+.h_slider_btn:hover {
+    background: #3587CB;
     color: #FFF;
 }
 
@@ -582,7 +586,7 @@ a.h_slider_btn:hover {
 .carousel-indicators [data-bs-target] {
     width: 20px;
     height: 20px;
-    border: 1px solid #6E4119;
+    border: 1px solid #687685;
     background-clip: border-box;
     background: #FFF;
     opacity: .62;
@@ -615,7 +619,7 @@ a.intro_btn:hover {
 }
 
 .about_title {
-    color: #CCA16A;
+    color: #3587CB;
     font-size: 30px;
     padding-right: 100px;
 }
@@ -639,7 +643,7 @@ a.intro_btn:hover {
 }
 
 .about_list li h4 {
-    color: #6E4119;
+    color: #687685;
     font-size: 20px;
     line-height: 40px;
 }
@@ -674,7 +678,7 @@ a.intro_btn:hover {
 }
 
 .sec_title p {
-    color: #CCA16A;
+    color: #3587CB;
     font-size: 16px;
 }
 
@@ -699,18 +703,18 @@ a.intro_btn:hover {
 }
 
 .doctors_slider .slick-dots li button:before {
-    color: #CCA16A;
+    color: #3587CB;
     font-size: 14px;
 }
 
 .doctors_slider .slick-dots li.slick-active button:before {
-    color: #CCA16A;
+    color: #3587CB;
     opacity: 1;
 }
 
 .home_services {
     background: url(../images/an-bg10.png) no-repeat center center /cover;
-    background-color: #364744;
+    background-color: #3587CB;
 
 }
 
@@ -727,7 +731,7 @@ a.serv_title {
     display: block;
     color: #FFF;
     font-size: 30px;
-    border-right: 3px solid #CCA16A;
+    border-right: 3px solid #3587CB;
     padding-right: 15px
 }
 
@@ -764,7 +768,7 @@ a.serv_title {
     position: absolute;
     bottom: 0;
     left: 0;
-    background: #238A78;
+    background: #86DC5B;
     color: #FFF;
     padding: 10px;
     font-size: 18px;
@@ -846,7 +850,7 @@ footer {
 }
 
 .site_copyrights {
-    background: #3A3A3A;
+    background: #687685;
     padding: 20px 0;
 }
 

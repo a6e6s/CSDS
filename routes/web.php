@@ -12,12 +12,17 @@ use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SlideController;
 use App\Http\Controllers\Admin\SpecialtyController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\CkeditorController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+//home routes
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('doctors', [DoctorController::class, 'index'])->name('doctors');
+Route::get('pages', [PageController::class, 'index'])->name('pages');
+Route::get('offers', [OfferController::class, 'index'])->name('offers');
 
+// admin routes
 Route::group(['prefix' => 'admin'], function () {
     // Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::view('/', 'admin.layouts.backend')->name('dashboard');
@@ -58,6 +63,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::patch('orders/actions', [OrderController::class, 'actions'])->name('orders.actions');
     Route::resource('orders', OrderController::class);
 });
+
 
 Route::get('ckeditor', [CkeditorController::class, 'index']);
 Route::post('ckeditor/upload', [CkeditorController::class, 'upload'])->name('ckeditor.upload');
