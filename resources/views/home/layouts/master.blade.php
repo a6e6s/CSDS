@@ -76,7 +76,7 @@
                         <!--end container-->
                     </div>
                     <!--end top_bar-->
-                    <div class="main_nav text-center py-3">
+                    <div class="main_nav text-center py-2">
                         <div class="main_menu ml-lg-4">
                             <ul class="ul_clear d-none d-xl-block">
                                 <li class="active"><a href="{{ route('home') }}">الرئيسية</a></li>
@@ -104,7 +104,7 @@
     </header>
     @include('admin.layouts.flash-messages')
     @yield('content')
-    <section class="home_blog py-5">
+    <section class="home_blog">
         <!--end top_footer-->
         <div class="site_copyrights">
             <div class="container">

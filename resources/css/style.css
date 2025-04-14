@@ -678,7 +678,7 @@ a.intro_btn:hover {
 }
 
 .sec_title p {
-    color: #3587CB;
+    color: #86DC5B;
     font-size: 16px;
 }
 
@@ -866,13 +866,13 @@ a.page_scoll {
     height: 35px;
     text-align: center;
     line-height: 35px;
-    background: #a49475;
-    box-shadow: 0 0px 2px rgba(0, 0, 0, 0.20);
+    background: #3587cb;
+    box-shadow: 1px 16px 11px 5px rgba(0, 0, 0, 0.20);
     color: #FFF;
     font-size: 18px;
     position: fixed;
     left: 20px;
-    bottom: 20px;
+    bottom: 2px;
     opacity: .7;
 }
 
@@ -884,7 +884,7 @@ a.page_scoll:before {
     height: 0;
     border-style: solid;
     border-width: 0 0 15px 35px;
-    border-color: transparent transparent #a49475 transparent;
+    border-color: transparent transparent #3587cb transparent;
 }
 
 a.page_scoll:hover {
