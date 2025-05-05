@@ -15,7 +15,7 @@
     <form action="{{ route('pages.update', $page->id) }}" method="post" class="row" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-        <div class="col-lg-8 pb-2">
+        <div class="col-lg-9 pb-2">
             <div class="card">
                 <div class="card-header bg-white h5">
                     <i class="icofont-chart-flow text-dark"></i> @lang('Edit')
@@ -31,10 +31,10 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="content">@lang('Content')</label>
+                        <label class="form-label" for="body">@lang('Content')</label>
                         <div class="input-group mb-3">
-                            <textarea class="form-control ckeditor" name="content" id="ckeditor" rows="6">{{ $page->content }}</textarea>
-                            @error('content')
+                            <textarea class="form-control ckeditor" name="body" id="ckeditor" rows="6">{{ $page->body }}</textarea>
+                            @error('body')
                                 <div class="break p-2 text-danger">{{ $message }}</div>
                             @enderror
                         </div>
@@ -42,7 +42,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-3">
             <div class="card">
                 <div class="card-header bg-dark text-white"><i class="icofont-gear"></i> @lang('Options')</div>
                 <div class="card-body">
@@ -68,7 +68,7 @@
     </form>
 @endsection
 @section('script')
-    <script src="https://cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script>
+    <script src="{{ asset('assets/js/ckeditor/ckeditor.js') }}"></script>
     <script type="text/javascript">
         CKEDITOR.replace('ckeditor', {
             filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
