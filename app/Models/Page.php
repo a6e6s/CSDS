@@ -27,7 +27,6 @@ class Page extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'body' => 'integer',
         'status' => 'integer',
     ];
 }

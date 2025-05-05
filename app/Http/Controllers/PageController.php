@@ -28,7 +28,6 @@ class PageController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -36,7 +35,7 @@ class PageController extends Controller
      */
     public function show(Page $page)
     {
-        //
+       return view('home.page.show', ['page'=>$page]);
     }
 
     /**

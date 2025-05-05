@@ -14,12 +14,15 @@ use App\Http\Controllers\Admin\SpecialtyController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\CkeditorController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageController as ControllersPageController;
 use Illuminate\Support\Facades\Route;
 
 //home routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('doctors', [DoctorController::class, 'index'])->name('doctors');
 Route::get('pages', [PageController::class, 'index'])->name('pages');
+Route::get('page/{page}', [ControllersPageController::class, 'show'])->name('page');
+
 Route::get('offers', [OfferController::class, 'index'])->name('offers');
 
 // admin routes
