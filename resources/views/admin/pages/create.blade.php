@@ -68,7 +68,7 @@
     </form>
 @endsection
 @section('script')
-    <script src="https://cdn.ckeditor.com/4.16.2/full/ckeditor.js"></script>
+    <script src="{{ asset('assets/js/ckeditor/ckeditor.js') }}"></script>
     <script type="text/javascript">
         CKEDITOR.replace('ckeditor', {
             filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",

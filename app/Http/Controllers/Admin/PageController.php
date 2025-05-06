@@ -37,10 +37,7 @@ class PageController extends Controller
     public function store(StorePageRequest $request)
     {
         $data = $request->input();
-        if ($request->hasfile('banner')) {
-            $data['image'] = 'banner_' . Str::random(6) . '.' . $request->file('banner')->extension();
-            $request->file('banner')->move(storage_path() . '/app/public/images/pages/', $data['image']);
-        }
+
         if (Page::create($data)) {
             return redirect()->route('pages.index')->with('success',  __('Your form saved successfully'));
         } else {
@@ -70,11 +67,7 @@ class PageController extends Controller
     public function update(UpdatePageRequest $request, Page $page)
     {
         $data = $request->input();
-        if ($request->hasfile('banner')) {
-            $data['image'] = 'banner_' . Str::random(6) . '.' . $request->file('banner')->extension();
-            $request->file('banner')->move(storage_path() . '/app/public/images/pages/', $data['image']);
-        }
-        // dd($data);
+
         if ($page->update($data)) {
             return redirect()->route('pages.index')->with('success',  __('Your form saved successfully'));
         } else {

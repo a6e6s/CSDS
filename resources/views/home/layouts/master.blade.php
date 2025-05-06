@@ -20,7 +20,7 @@
         <div class="container">
             <div class="row align-items-center align-items-md-start">
                 <div class="col-xl-2 col-md-3 col-4">
-                    <div class="top_logo"><a href=""><img src="{{ asset('images/logo.png') }}" alt=""></a></div>
+                    <div class="top_logo"><a href="{{ url('/') }}"><img src="{{ asset('images/logo.png') }}" alt=""></a></div>
                     <!--end top_logo-->
                 </div>
                 <!--end col-->
@@ -33,12 +33,12 @@
                                     <ul class="top_contact text-start">
                                         <li class="d-none d-md-block">
                                             {{-- @isset($settings['contacts']->meta->email) --}}
-                                                <a href="mailto:"><i class="icofont icofont-envelope"></i></a>
+                                            <a href="mailto:"><i class="icofont icofont-envelope"></i></a>
 
                                         </li>
                                         <li class="d-none d-md-block">
                                             {{-- @isset($settings['contacts']->meta->mobile) --}}
-                                                <a href="tel:"><i class="icofont icofont-phone"></i></a>
+                                            <a href="tel:"><i class="icofont icofont-phone"></i></a>
 
                                         </li>
                                     </ul>
@@ -47,25 +47,19 @@
                                 <div class="col-auto">
                                     <ul class="top_social d-none d-lg-block">
 
-                                            <li><a href=""><i class="icofont icofont-facebook"></i></a></li>
+                                        <li><a href=""><i class="icofont icofont-facebook"></i></a></li>
 
+                                        <li><a href=""><i class="icofont icofont-twitter"></i></a></li>
 
-                                            <li><a href=""><i class="icofont icofont-twitter"></i></a></li>
+                                        <li><a href=""><i class="icofont icofont-instagram"></i></a></li>
 
+                                        <li><a href=""><i class="icofont icofont-youtube"></i></a></li>
 
-                                            <li><a href=""><i class="icofont icofont-instagram"></i></a></li>
+                                        <li><a href=""><i class="icofont icofont-pinterest"></i></a></li>
 
+                                        <li><a href=""><i class="icofont icofont-snapchat"></i></a></li>
 
-                                            <li><a href=""><i class="icofont icofont-youtube"></i></a></li>
-
-
-                                            <li><a href=""><i class="icofont icofont-pinterest"></i></a></li>
-
-
-                                            <li><a href=""><i class="icofont icofont-snapchat"></i></a></li>
-
-
-                                            <li><a href=""><img src="{{ asset('images/tiktok.png') }}" alt=""></a></li>
+                                        <li><a href=""><img src="{{ asset('images/tiktok.png') }}" alt=""></a></li>
 
                                     </ul>
                                 </div>
@@ -76,24 +70,7 @@
                         <!--end container-->
                     </div>
                     <!--end top_bar-->
-                    <div class="main_nav text-center py-2">
-                        <div class="main_menu ml-lg-4">
-                            <ul class="ul_clear d-none d-xl-block">
-                                <li class="active"><a href="{{ route('home') }}">الرئيسية</a></li>
-                                {{-- @foreach (App\Models\Page::where('status', 1)->get(['title', 'id', 'alias']) as $page)
-                                    <li><a href="{{ route('page.show', ['page' => $page->id]) . '/' . $page->alias }}">{{ $page->title }}</a></li>
-                                @endforeach --}}
-                                <li><a href="{{ route('doctors') }}">الأطباء</a></li>
-                                <li><a href="{{ route('home') }}#offers">العروض</a></li>
-                                <li><a href="{{ route('home') }}#inquery">حجز موعد</a></li>
-                            </ul>
-                            <a href="" class="d-xl-none top_menu_btn"><i class="icofont icofont-navigation-menu"></i></a>
-
-                            <div class="clearfix"></div>
-                        </div>
-                        <!--end main_menu-->
-
-                    </div>
+                    <x-main-menu />
                     <!--end main_nav-->
                 </div>
                 <!--end col-->
@@ -116,25 +93,19 @@
                     <div class="col-md-5 col-12">
                         <ul class="footer_social">
 
-                                <li><a href=""><i class="icofont icofont-facebook"></i></a></li>
+                            <li><a href=""><i class="icofont icofont-facebook"></i></a></li>
 
+                            <li><a href=""><i class="icofont icofont-twitter"></i></a></li>
 
-                                <li><a href=""><i class="icofont icofont-twitter"></i></a></li>
+                            <li><a href=""><i class="icofont icofont-instagram"></i></a></li>
 
+                            <li><a href=""><i class="icofont icofont-youtube"></i></a></li>
 
-                                <li><a href=""><i class="icofont icofont-instagram"></i></a></li>
+                            <li><a href=""><i class="icofont icofont-pinterest"></i></a></li>
 
+                            <li><a href=""><i class="icofont icofont-snapchat"></i></a></li>
 
-                                <li><a href=""><i class="icofont icofont-youtube"></i></a></li>
-
-
-                                <li><a href=""><i class="icofont icofont-pinterest"></i></a></li>
-
-
-                                <li><a href=""><i class="icofont icofont-snapchat"></i></a></li>
-
-
-                                <li><a href=""><img src="{{ asset('images/tiktok.png') }}" alt=""></a></li>
+                            <li><a href=""><img src="{{ asset('images/tiktok.png') }}" alt=""></a></li>
 
                         </ul>
                     </div>
