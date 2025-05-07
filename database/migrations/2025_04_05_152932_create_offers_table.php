@@ -20,7 +20,7 @@ return new class extends Migration
             $table->float('price');
             $table->float('new_price');
             $table->text('body');
-            $table->bigInteger('hospital_id');
+            $table->unsignedBigInteger('hospital_id');
             $table->foreign('hospital_id')->references('id')->on('hospitals');
             $table->tinyInteger('status');
             $table->dateTime('end_at');

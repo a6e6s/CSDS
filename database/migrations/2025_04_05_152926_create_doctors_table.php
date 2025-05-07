@@ -21,11 +21,11 @@ return new class extends Migration
             $table->string('password');
             $table->string('image')->nullable();
             $table->text('cetifications')->nullable();
-            $table->bigInteger('hospital_id');
+            $table->unsignedBigInteger('hospital_id');
             $table->foreign('hospital_id')->references('id')->on('hospitals');
-            $table->bigInteger('specialty_id');
+            $table->unsignedBigInteger('specialty_id');
             $table->foreign('specialty_id')->references('id')->on('specialties');
-            $table->bigInteger('city_id');
+            $table->unsignedBigInteger('city_id');
             $table->foreign('city_id')->references('id')->on('cities');
             $table->tinyInteger('status');
             $table->timestamps();

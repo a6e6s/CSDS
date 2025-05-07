@@ -15,9 +15,9 @@ return new class extends Migration
 
         Schema::create('available_appointments', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->dateTime('date');
-            $table->bigInteger('doctor_id');
+            $table->unsignedBigInteger('doctor_id');
             $table->foreign('doctor_id')->references('id')->on('doctors');
             $table->tinyInteger('status');
             $table->timestamps();

@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->integer('rating');
             $table->text('body');
-            $table->bigInteger('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->bigInteger('doctor_id');
+            $table->unsignedBigInteger('doctor_id');
             $table->foreign('doctor_id')->references('id')->on('doctors');
             $table->tinyInteger('status');
             $table->timestamps();

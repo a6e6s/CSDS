@@ -19,13 +19,12 @@ return new class extends Migration
             $table->string('date');
             $table->string('contact');
             $table->string('patient');
-            $table->foreign('patient')->references('id')->on('users');
             $table->text('notes');
-            $table->bigInteger('offer_id')->nullable();
+            $table->unsignedBigInteger('offer_id')->nullable();
             $table->foreign('offer_id')->references('id')->on('offers');
-            $table->bigInteger('appointmet_id')->nullable();
+            $table->unsignedBigInteger('appointmet_id')->nullable();
             $table->foreign('appointmet_id')->references('id')->on('available_appointments');
-            $table->bigInteger('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->tinyInteger('status');
             $table->timestamps();
         });
