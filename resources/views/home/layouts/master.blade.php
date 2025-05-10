@@ -79,7 +79,7 @@
         </div>
         <!--end container-->
     </header>
-    @include('admin.layouts.flash-messages')
+    @include('home.layouts.flash-messages')
     @yield('content')
     <section class="home_blog">
         <!--end top_footer-->

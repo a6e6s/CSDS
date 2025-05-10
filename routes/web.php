@@ -1,75 +1,81 @@
 <?php
 
-use App\Http\Controllers\Admin\AvailableAppointmentController;
-use App\Http\Controllers\Admin\CityController;
-use App\Http\Controllers\Admin\ContactController;
-use App\Http\Controllers\Admin\DoctorController;
-use App\Http\Controllers\Admin\HospitalController;
-use App\Http\Controllers\Admin\OfferController;
-use App\Http\Controllers\Admin\OrderController;
-use App\Http\Controllers\Admin\PageController;
-use App\Http\Controllers\Admin\ReviewController;
-use App\Http\Controllers\Admin\SlideController;
-use App\Http\Controllers\Admin\SpecialtyController;
-use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\AvailableAppointmentController as AdminAvailableAppointmentController;
+use App\Http\Controllers\Admin\CityController as AdminCityController;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
+use App\Http\Controllers\Admin\DoctorController as AdminDoctorController;
+use App\Http\Controllers\Admin\HospitalController as AdminHospitalController;
+use App\Http\Controllers\Admin\OfferController as AdminOfferController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
+use App\Http\Controllers\Admin\PageController as AdminPageController;
+use App\Http\Controllers\Admin\ReviewController as AdminReviewController;
+use App\Http\Controllers\Admin\SlideController as AdminSlideController;
+use App\Http\Controllers\Admin\SpecialtyController as AdminSpecialtyController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\CkeditorController;
-use App\Http\Controllers\DoctorController as ControllersDoctorController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\OfferController as ControllersOfferController;
-use App\Http\Controllers\PageController as ControllersPageController;
+use App\Http\Controllers\OfferController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\UserController;
+use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
 //home routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('doctors', [ControllersDoctorController::class, 'index'])->name('doctors');
-Route::get('offers', [ControllersOfferController::class, 'index'])->name('offers');
+Route::get('doctors', [DoctorController::class, 'index'])->name('doctors');
+Route::get('offers', [OfferController::class, 'index'])->name('offers');
 Route::get('contact-us', [ContactController::class, 'index'])->name('contactus');
 Route::get('pages', [PageController::class, 'index'])->name('pages');
-Route::get('page/{page}', [ControllersPageController::class, 'show'])->name('page');
-
+Route::get('page/{page}', [PageController::class, 'show'])->name('page');
 
 // admin routes
-Route::group(['prefix' => 'admin'], function () {
-    // Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', AdminMiddleware::class]], function () {
     Route::view('/', 'admin.layouts.backend')->name('dashboard');
 
-    Route::patch('pages/actions', [PageController::class, 'actions'])->name('pages.actions');
-    Route::resource('pages', PageController::class);
+    Route::patch('pages/actions', [AdminPageController::class, 'actions'])->name('pages.actions');
+    Route::resource('pages', AdminPageController::class);
 
-    Route::patch('users/actions', [UserController::class, 'actions'])->name('users.actions');
-    Route::resource('users', UserController::class);
+    Route::patch('users/actions', [AdminUserController::class, 'actions'])->name('users.actions');
+    Route::resource('users', AdminUserController::class);
 
-    Route::patch('hospitals/actions', [HospitalController::class, 'actions'])->name('hospitals.actions');
-    Route::resource('hospitals', HospitalController::class);
+    Route::patch('hospitals/actions', [AdminHospitalController::class, 'actions'])->name('hospitals.actions');
+    Route::resource('hospitals', AdminHospitalController::class);
 
-    Route::patch('doctors/actions', [DoctorController::class, 'actions'])->name('doctors.actions');
-    Route::resource('doctors', DoctorController::class);
+    Route::patch('doctors/actions', [AdminDoctorController::class, 'actions'])->name('doctors.actions');
+    Route::resource('doctors', AdminDoctorController::class);
 
-    Route::patch('cities/actions', [CityController::class, 'actions'])->name('cities.actions');
-    Route::resource('cities', CityController::class);
+    Route::patch('cities/actions', [AdminCityController::class, 'actions'])->name('cities.actions');
+    Route::resource('cities', AdminCityController::class);
 
-    Route::patch('specialties/actions', [SpecialtyController::class, 'actions'])->name('specialties.actions');
-    Route::resource('specialties', SpecialtyController::class);
+    Route::patch('specialties/actions', [AdminSpecialtyController::class, 'actions'])->name('specialties.actions');
+    Route::resource('specialties', AdminSpecialtyController::class);
 
-    Route::patch('slides/actions', [SlideController::class, 'actions'])->name('slides.actions');
-    Route::resource('slides', SlideController::class);
+    Route::patch('slides/actions', [AdminSlideController::class, 'actions'])->name('slides.actions');
+    Route::resource('slides', AdminSlideController::class);
 
-    Route::patch('contacts/actions', [ContactController::class, 'actions'])->name('contacts.actions');
-    Route::resource('contacts', ContactController::class);
+    Route::patch('contacts/actions', [AdminContactController::class, 'actions'])->name('contacts.actions');
+    Route::resource('contacts', AdminContactController::class);
 
-    Route::patch('offers/actions', [OfferController::class, 'actions'])->name('offers.actions');
-    Route::resource('offers', OfferController::class);
+    Route::patch('offers/actions', [AdminOfferController::class, 'actions'])->name('offers.actions');
+    Route::resource('offers', AdminOfferController::class);
 
-    Route::patch('available-appointments/actions', [AvailableAppointmentController::class, 'actions'])->name('available-appointments.actions');
-    Route::resource('available-appointments', AvailableAppointmentController::class);
+    Route::patch('available-appointments/actions', [AdminAvailableAppointmentController::class, 'actions'])->name('available-appointments.actions');
+    Route::resource('available-appointments', AdminAvailableAppointmentController::class);
 
-    Route::patch('reviews/actions', [ReviewController::class, 'actions'])->name('reviews.actions');
-    Route::resource('reviews', ReviewController::class);
+    Route::patch('reviews/actions', [AdminReviewController::class, 'actions'])->name('reviews.actions');
+    Route::resource('reviews', AdminReviewController::class);
 
-    Route::patch('orders/actions', [OrderController::class, 'actions'])->name('orders.actions');
-    Route::resource('orders', OrderController::class);
+    Route::patch('orders/actions', [AdminOrderController::class, 'actions'])->name('orders.actions');
+    Route::resource('orders', AdminOrderController::class);
 });
 
+Route::view('login', 'auth.login')->name("login");
+Route::post('signin', [UserController::class, "signin"])->name('signin');
+Route::view('register', 'auth.register')->name("register");
+Route::post('signup', [UserController::class, "signup"])->name('signup');
+Route::post('logout', [UserController::class, 'logout'])->name('logout');
 
 Route::get('ckeditor', [CkeditorController::class, 'index']);
 Route::post('ckeditor/upload', [CkeditorController::class, 'upload'])->name('ckeditor.upload');
