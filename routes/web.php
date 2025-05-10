@@ -26,13 +26,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('doctors', [DoctorController::class, 'index'])->name('doctors');
 Route::get('offers', [OfferController::class, 'index'])->name('offers');
-Route::get('contact-us', [ContactController::class, 'index'])->name('contactus');
+Route::get('contact-us', [ContactController::class, 'create'])->name('contactus');
+Route::post('contact-us', [ContactController::class, 'store'])->name('contact.submit');
 Route::get('pages', [PageController::class, 'index'])->name('pages');
 Route::get('page/{page}', [PageController::class, 'show'])->name('page');
 
 // admin routes
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', AdminMiddleware::class]], function () {
     Route::view('/', 'admin.layouts.backend')->name('dashboard');
+
+    Route::patch('slides/actions', [AdminSlideController::class, 'actions'])->name('slides.actions');
+    Route::resource('slides', AdminSlideController::class);
 
     Route::patch('pages/actions', [AdminPageController::class, 'actions'])->name('pages.actions');
     Route::resource('pages', AdminPageController::class);
@@ -51,9 +55,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', AdminMiddleware::cla
 
     Route::patch('specialties/actions', [AdminSpecialtyController::class, 'actions'])->name('specialties.actions');
     Route::resource('specialties', AdminSpecialtyController::class);
-
-    Route::patch('slides/actions', [AdminSlideController::class, 'actions'])->name('slides.actions');
-    Route::resource('slides', AdminSlideController::class);
 
     Route::patch('contacts/actions', [AdminContactController::class, 'actions'])->name('contacts.actions');
     Route::resource('contacts', AdminContactController::class);

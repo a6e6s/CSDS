@@ -6,12 +6,13 @@
     <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
 
         <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}"><i class="nav-icon icofont-dashboard "></i>@lang('Dashboard')</a></li>
-        {{-- <li class="nav-item"><a class="nav-link" href="{{ route('banners.index') }}"><i class="nav-icon icofont-image"></i>@lang('Banners')</a></li> --}}
+        <li class="nav-item"><a class="nav-link" href="{{ route('slides.index') }}"><i class="nav-icon icofont-image"></i>@lang('Slides')</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('pages.index') }}"><i class="nav-icon icofont-tasks"></i>@lang('Pages')</a></li>
         {{-- <li class="nav-item"><a class="nav-link" href="{{ route('clinics.index') }}"><i class="nav-icon icofont-hospital"></i>@lang('Clinics')</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('doctors.index') }}"><i class="nav-icon icofont-doctor"></i>@lang('Doctors')</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('offers.index') }}"><i class="nav-icon icofont-ticket"></i>@lang('Offers')</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('inqueries.index') }}"><i class="nav-icon icofont-envelope"></i>@lang('Inqueries')</a></li> --}}
+        <li class="nav-item"><a class="nav-link" href="{{ route('contacts.index') }}"><i class="nav-icon icofont-envelope"></i>@lang('Contacr us')</a></li>
 
 
 

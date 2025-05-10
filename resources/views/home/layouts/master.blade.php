@@ -12,6 +12,7 @@
     @vite('resources/css/app.css')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@icon/icofont@1.0.1-alpha.1/icofont.min.css">
     <title>{{ env('APP_NAME') }}</title>
+    @yield('styles')
 
 </head>
 
@@ -58,9 +59,24 @@
                                         <li><a href=""><i class="icofont icofont-pinterest"></i></a></li>
 
                                         <li><a href=""><i class="icofont icofont-snapchat"></i></a></li>
-
-                                        <li><a href=""><img src="{{ asset('images/tiktok.png') }}" alt=""></a></li>
-
+                                        @auth
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="icofont icofont-user"></i>
+                                                </a>
+                                                <div class="dropdown-menu text-small bg-dark">
+                                                    <a class="nav-link dropdown-item text-end" href="{{ route('dashboard') }}" title="">
+                                                        <i class="icofont mx-2 icofont-dashboard"></i> لوحة التحكم
+                                                    </a>
+                                                    <a class="nav-link dropdown-item text-end" role="button" onclick="document.getElementById('logout-form').submit();">
+                                                        <i class="icofont mx-2 icofont-exit"></i>تسجيل الخروج</a>
+                                                </div>
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf</form>
+                                            </li>
+                                        @endauth
+                                        @guest
+                                            <li><a href="{{ route('login') }}" title="تسجيل الدخول"><i class="icofont icofont-user mx-2"></i></a></li>
+                                        @endguest
                                     </ul>
                                 </div>
                                 <!--end col-->
@@ -119,11 +135,12 @@
     <a href="" class="page_scoll"><i class="icofont icofont-arrow-up"></i></a>
     <!-- Bootstrap core JavaScript -->
     <script src="{{ asset('assets/js/jquery-2.2.4.min.js') }}"></script>
+    <script src="{{ asset('assets/js/popper.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
     <script src="{{ asset('assets/js/slick.min.js') }}"></script>
     <script src="{{ asset('assets/js/wow.min.js') }}"></script>
     <script src="{{ asset('assets/js/customjs.js') }}"></script>
-
+    @yield('scripts')
 </body>
 
 </html>

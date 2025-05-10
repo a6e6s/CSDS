@@ -21,7 +21,9 @@ class Contact extends Model
         'body',
         'status',
     ];
-
+    protected $attributes = [
+        'status' => 0,
+    ];
     /**
      * The attributes that should be cast to native types.
      *
@@ -29,7 +31,7 @@ class Contact extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'body' => 'integer',
+        'body' => 'string',
         'status' => 'integer',
     ];
 }

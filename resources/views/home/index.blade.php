@@ -13,7 +13,7 @@
                                     <div class="col-xl-6 col-lg-6  col-md-5 col-12 me-5">
                                         <div class="fadeInDown h_slide_text text-center text-md-end mx-5">
                                             <h4 class="display-3">{{ $banner->title }}</h4>
-                                            <p class="lh-3">{{ $banner->description }}</p>
+                                            <p class="lh-3">{{ $banner->subtitle }}</p>
                                             @if ($banner->url)
                                                 <a href="{{ $banner->url }}" class="h_slider_btn me-5"> احجز الآن <i class="icofont icofont-rounded-double-left ms-3"></i></a>
                                             @endif
@@ -21,7 +21,7 @@
                                     </div>
                                     <!--end col-->
                                     <div class="col-xl-4 col-lg-5 col-md-6 col-12 ms-auto align-self-end">
-                                        <div class="h_slide_img fadeInUp"><img src="{{ asset('storage/images/banners/' . $banner->image) }}"></div>
+                                        <div class="h_slide_img fadeInUp"><img src="{{ asset('storage/images/slides/' . $banner->image) }}"></div>
                                     </div>
                                     <!--end col-->
                                 </div>
