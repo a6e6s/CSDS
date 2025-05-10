@@ -27,7 +27,7 @@ return new class extends Migration
             $table->foreign('specialty_id')->references('id')->on('specialties');
             $table->unsignedBigInteger('city_id');
             $table->foreign('city_id')->references('id')->on('cities');
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
 

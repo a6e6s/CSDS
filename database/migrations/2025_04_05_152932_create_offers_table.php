@@ -22,7 +22,7 @@ return new class extends Migration
             $table->text('body');
             $table->unsignedBigInteger('hospital_id');
             $table->foreign('hospital_id')->references('id')->on('hospitals');
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(0);
             $table->dateTime('end_at');
             $table->dateTime('start_date');
             $table->timestamps();

@@ -12,6 +12,7 @@
   - [x] npm run build
   - [x] php artisan key:generate
   - [x] php artisan storage:link
+  - [x] php artisan migrate:fresh --seed
   - [x] php artisan serve
 
 ## todo
@@ -19,7 +20,7 @@
 ### admin
   - [x] building admin CRUD for contacts 
   - [x] building admin CRUD for slides 
-  - [ ] building admin CRUD for cities
+  - [x] building admin CRUD for cities
   - [ ] building admin CRUD for hospitals
   - [ ] building admin CRUD for specialities
   - [ ] building admin CRUD for offers

@@ -25,7 +25,7 @@ return new class extends Migration
             $table->unsignedBigInteger('appointmet_id')->nullable();
             $table->foreign('appointmet_id')->references('id')->on('available_appointments');
             $table->unsignedBigInteger('user_id');
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
 

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->enum('type', ["admin","patient"])->default('patient');
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(0);
             $table->string('image')->nullable();
             $table->date('dob')->nullable();
             $table->rememberToken();

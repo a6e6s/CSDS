@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('logo')->nullable();
             $table->string('latitude');
             $table->string('longitude');
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(0);
             $table->string('phone');
             $table->timestamps();
         });

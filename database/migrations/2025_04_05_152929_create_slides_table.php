@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('image_alt')->nullable();
             $table->string('image');
             $table->string('url')->nullable();
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
 

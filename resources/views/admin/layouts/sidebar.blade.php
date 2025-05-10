@@ -8,6 +8,7 @@
         <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}"><i class="nav-icon icofont-dashboard "></i>@lang('Dashboard')</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('slides.index') }}"><i class="nav-icon icofont-image"></i>@lang('Slides')</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('pages.index') }}"><i class="nav-icon icofont-tasks"></i>@lang('Pages')</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ route('cities.index') }}"><i class="nav-icon icofont-flag"></i>@lang('Cities')</a></li>
         {{-- <li class="nav-item"><a class="nav-link" href="{{ route('clinics.index') }}"><i class="nav-icon icofont-hospital"></i>@lang('Clinics')</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('doctors.index') }}"><i class="nav-icon icofont-doctor"></i>@lang('Doctors')</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('offers.index') }}"><i class="nav-icon icofont-ticket"></i>@lang('Offers')</a></li>
