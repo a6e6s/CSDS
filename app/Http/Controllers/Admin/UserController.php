@@ -21,7 +21,7 @@ class UserController extends Controller
             if (isset($request->input()['search']['name'])) $query->where('name', 'like', "%" . $request->input()['search']['name'] . "%");
         })->where(function ($query) use ($request) {
             if (isset($request->input()['search']['status'])) $query->where('status', $request->input()['search']['status']);
-        })->paginate(20);
+        })->paginate(40);
         return view('admin.users.index', ['users' => $users]);
     }
 

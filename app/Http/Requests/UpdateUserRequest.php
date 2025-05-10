@@ -25,6 +25,7 @@ class UpdateUserRequest extends FormRequest
             'name' => 'required',
             'email' => 'required',
             'status' => 'required',
+            'type' => 'nullable',
             'password' => 'sometimes|required_with:password_repeat',
         ];
     }

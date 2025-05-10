@@ -7,7 +7,7 @@ models:
     logo: string nullable
     latitude: string
     longitude: string
-    status: tinyInteger
+    status: tinyInteger default:""0""
     phone: bigInteger
   User:
     id: id
@@ -16,7 +16,7 @@ models:
     password: string
     type: enum:""admin"",""patient"" default:""patient""
     image: string nullable
-    status: tinyInteger
+    status: tinyInteger default:""0""
     dob: date nullable
   Doctor:
     id: id foreign:available_appointments.doctor_id
@@ -29,18 +29,18 @@ models:
     hospital_id: bigInteger foreign:hospitals.id
     specialty_id: bigInteger foreign:specialties.id
     city_id: bigInteger foreign:cities.id
-    status: tinyInteger
+    status: tinyInteger default:""0""
     updated_at: dateTime
   City:
     id: id
     name: string
-    status: tinyInteger
+    status: tinyInteger default:""0""
   Specialty:
     id: id
     name: string
     description: text
     logo: string nullable
-    status: tinyInteger
+    status: tinyInteger default:""0""
   Slide:
     id: id
     title: string nullable
@@ -48,18 +48,18 @@ models:
     image_alt: string nullable
     image: string
     url: string nullable
-    status: tinyInteger
+    status: tinyInteger default:""0""
   Contact:
     id: id
     name: string
     email: string
     body: mediumInteger
-    status: tinyInteger
+    status: tinyInteger default:""0""
   Page:
     id: id
     title: string
     body: mediumInteger
-    status: tinyInteger
+    status: tinyInteger default:""0""
   Offer:
     id: id
     title: string
@@ -68,7 +68,7 @@ models:
     new_price: float
     body: text
     hospital_id: bigInteger foreign:hospitals.id
-    status: tinyInteger
+    status: tinyInteger default:""0""
     end_at: dateTime
     start_date: dateTime
   AvailableAppointment:
@@ -76,14 +76,14 @@ models:
     user_id: bigInteger
     date: dateTime
     doctor_id: bigInteger foreign:doctors.id
-    status: tinyInteger
+    status: tinyInteger default:""0""
   Review:
     id: id
     rating: integer
     body: text
     user_id: bigInteger foreign:users.id
     doctor_id: bigInteger foreign:doctors.id
-    status: tinyInteger
+    status: tinyInteger default:""0""
   Order:
     id: id
     time: time
@@ -94,4 +94,4 @@ models:
     offer_id: bigInteger nullable foreign:offers.id
     appointmet_id: bigInteger nullable foreign:available_appointments.id
     user_id: bigInteger
-    status: tinyInteger
+    status: tinyInteger default:""0""

@@ -27,6 +27,7 @@ class StoreUserRequest extends FormRequest
             'password' => 'min:6|required_with:password_repeat|same:password_repeat',
             'password_repeat' => 'required',
             'status' => 'required',
+            'type' => 'nullable',
         ];
     }
 }

@@ -23,6 +23,7 @@
                         <th class="text-light"><input class="form-check-input me-2" id="checkAll" onclick="checkAll('datatable');isChecked()" type="checkbox"></th>
                         <th class="text-light">@lang('Name')</th>
                         <th class="text-start text-light"> @lang('Email')</th>
+                        <th class="text-start text-light"> @lang('Type')</th>
                         <th class="text-light">@lang('Status')</th>
                         <th class="text-light">@lang('Created at')</th>
                         <th class="text-light">@lang('Actions')</th>
@@ -31,6 +32,7 @@
                         <form action="{{ route('users.index') }}" method="get" id="search-form">
                             <th class="p-1"></th>
                             <th class="p-1"><input type="text" class="form-control form-control-sm" value="{{ optional(request('search'))['name'] }}" name="search[name]"></th>
+                            <th class="p-1"></th>
                             <th class="p-1"></th>
                             <th class="p-1">
                                 <select class="form-select form-select-sm" name="search[status]">
@@ -64,6 +66,7 @@
                             <td class="text-start"><input name="record[]" class="form-check-checkbox me-2" onclick="isChecked()" type="checkbox" value="{{ $user->id }}"> </td>
                             <td class="text-start">{{  $user->name }}</td>
                             <td> {{ ucfirst($user->email) }} </td>
+                            <td> {{ ucfirst($user->type) }} </td>
                             <td> {!! $user->status ? '<i class="icofont-check-circled text-success icofont-lg"></i>' : '<i class="icofont-ban icofont-lg text-danger"></i>' !!}</td>
                             <td> {{ optional($user->created_at)->format('d-m-Y') }} </td>
                             <td>

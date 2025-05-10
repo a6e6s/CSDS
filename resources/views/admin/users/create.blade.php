@@ -65,6 +65,14 @@
                 <div class="card-header bg-dark text-white"><i class="icofont-gear"></i> @lang('Options')</div>
                 <div class="card-body">
                     <div class="mb-3">
+                        <label for="" class="form-label">Type</label>
+                        <select class="form-select " name="type" id="type">
+                            <option selected>Select one</option>
+                            <option value="patient">Patient</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label" for="mobile">@lang('Status')</label>
                         <div class="form-check mb-3">
                             <input {{ old('status') == '0' ? 'checked' : '' }} class="btn-check" id="blocked" type="radio" value="0" name="status">
