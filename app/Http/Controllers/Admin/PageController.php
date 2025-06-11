@@ -113,7 +113,7 @@ class PageController extends Controller
         }
         if ($request->DeleteAll) {
             $result = Page::whereIn('id', json_decode($request->allrecords, true))->delete();
-            $result .= " - Activated successfully.";
+            $result .= " - Deleted successfully.";
         }
         if ($result) {
             return redirect()->back()->with('success',  $result);

@@ -113,7 +113,7 @@ class CityController extends Controller
         }
         if ($request->DeleteAll) {
             $result = City::whereIn('id', json_decode($request->allrecords, true))->delete();
-            $result .= " - Activated successfully.";
+            $result .= " - Deleted successfully.";
         }
         if ($result) {
             return redirect()->back()->with('success',  $result);

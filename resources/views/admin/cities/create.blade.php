@@ -59,18 +59,5 @@
     </form>
 @endsection
 @section('script')
-    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
-    <script type="text/javascript">
-        CKEDITOR.replace('ckeditor', {
-            filebrowserUploadUrl: "{{ route('ckeditor.upload', ['_token' => csrf_token()]) }}",
-            filebrowserUploadMethod: 'form',
-        });
-        CKEDITOR.config.width = '100%';
-        CKEDITOR.config.height = '600px';
-        //write on alias
-        function updateInput() {
-            let input1 = document.getElementById("title").value;
-            document.getElementById("alias").value = input1.replace(/[&\/\\#, +()$~%.'":*?<>{}]/g, '_');
-        }
-    </script>
+
 @endsection

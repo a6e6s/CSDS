@@ -34,6 +34,5 @@ class Hospital extends Model
     protected $casts = [
         'id' => 'integer',
         'status' => 'integer',
-        'phone' => 'integer',
     ];
 }
