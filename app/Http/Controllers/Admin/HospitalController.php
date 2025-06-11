@@ -39,6 +39,11 @@ class HospitalController extends Controller
     public function store(StoreHospitalRequest $request)
     {
         $data = $request->input();
+
+        if ($request->hasfile('logo')) {
+            $data['logo'] = 'logo_' . rand(1000, 9999) . '.' . $request->file('logo')->extension();
+            $request->file('logo')->move(storage_path() . '/app/public/images/hospitals/', $data['logo']);
+        }
         if (Hospital::create($data)) {
             return redirect()->route('hospitals.index')->with('success',  __('Your form saved successfully'));
         } else {
@@ -61,6 +66,10 @@ class HospitalController extends Controller
     public function update(UpdateHospitalRequest $request, Hospital $hospital)
     {
         $data = $request->validated();
+        if ($request->hasfile('logo')) {
+            $data['logo'] = 'logo_' . rand(1000, 9999) . '.' . $request->file('logo')->extension();
+            $request->file('logo')->move(storage_path() . '/app/public/images/hospitals/', $data['logo']);
+        }
         if (!$hospital->update($data)) {
             return redirect()->back()->with('error',  __('Error occurred while we trying to store your data. please try again'));
         }

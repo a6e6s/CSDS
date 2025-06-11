@@ -32,6 +32,14 @@
                             @enderror
                         </div>
                     </div>
+
+                    <div class="mb-3">
+                        <label class="name" for="name">@lang('Hospital name')</label>
+                        <input type="file" class="form-control @error('logo') is-invalid @enderror" id="logo" name="logo">
+                        @error('logo')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
                     <div class="mb-3">
                         <label class="phone" for="phone">@lang('Hospital phone')</label>
                         <div class="input-group mb-3">

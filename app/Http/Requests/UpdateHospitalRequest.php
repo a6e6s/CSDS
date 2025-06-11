@@ -25,7 +25,7 @@ class UpdateHospitalRequest extends FormRequest
             'name' => 'required',
             'address' => 'nullable',
             'description' => 'nullable',
-            'logo' => 'nullable|image',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'latitude' => 'nullable',
             'longitude' => 'nullable',
             'phone' => 'required',

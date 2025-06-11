@@ -9,7 +9,8 @@
 @section('content')
     <div class="row">
         <div class="text-end pb-2">
-            <a href="{{ route('hospitals.index') }}" class="col btn-sm btn btn-danger"><i class="icofont-undo"></i> @lang('Go back')</a>
+            <a href="{{ route('hospitals.index') }}" class="col btn-sm btn btn-danger"><i class="icofont-undo"></i>
+                @lang('Go back')</a>
         </div>
     </div>
     <form action="{{ route('hospitals.update', $hospital) }}" method="post" class="row" enctype="multipart/form-data">
@@ -24,13 +25,25 @@
                     <div class="mb-3">
                         <label class="name" for="name">@lang('Hospital name')</label>
                         <div class="input-group mb-3">
-                            <input class="form-control" value="{{ $hospital->name }}" name="name" type="text" placeholder="@lang('Hospital name')" aria-label="name" id="name">
+                            <input class="form-control" value="{{ $hospital->name }}" name="name" type="text"
+                                placeholder="@lang('Hospital name')" aria-label="name" id="name">
                             @error('name')
                                 <span class="break p-2 text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                     </div>
-
+                    <div class="mb-3">
+                        <label for="logo" class="form-label">@lang('Hospital logo')</label>
+                        <input type="file" class="form-control @error('logo') is-invalid @enderror" id="logo"
+                            name="logo">
+                        @if ($hospital->logo)
+                            <img salt="logo" width="100px"
+                                src="{{ asset('storage/images/hospitals/' . $hospital->logo) }}">
+                        @endif
+                        @error('logo')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
 
                     <div class="mb-3">
                         <label class="phone" for="phone">@lang('Hospital phone')</label>
@@ -55,8 +68,8 @@
                         <div class="mb-3 col-6">
                             <label class="latitude" for="latitude">@lang('Latitude')</label>
                             <div class="input-group mb-3">
-                                <input class="form-control" value="{{ $hospital->latitude }}" name="latitude" type="text"
-                                    placeholder="@lang('Hospital latitude')" aria-label="latitude" id="latitude">
+                                <input class="form-control" value="{{ $hospital->latitude }}" name="latitude"
+                                    type="text" placeholder="@lang('Hospital latitude')" aria-label="latitude" id="latitude">
                                 @error('latitude')
                                     <span class="break p-2 text-danger">{{ $message }}</span>
                                 @enderror
@@ -65,8 +78,8 @@
                         <div class="mb-3 col-6">
                             <label class="longitude" for="longitude">@lang('Longitude')</label>
                             <div class="input-group mb-3">
-                                <input class="form-control" value="{{ $hospital->longitude }}" name="longitude" type="text"
-                                    placeholder="@lang('Hospital longitude')" aria-label="longitude" id="longitude">
+                                <input class="form-control" value="{{ $hospital->longitude }}" name="longitude"
+                                    type="text" placeholder="@lang('Hospital longitude')" aria-label="longitude" id="longitude">
                                 @error('longitude')
                                     <span class="break p-2 text-danger">{{ $message }}</span>
                                 @enderror
@@ -95,10 +108,14 @@
                     <div class="mb-3">
                         <label class="form-label" for="mobile">@lang('Status')</label>
                         <div class="form-check mb-3">
-                            <input {{ $hospital->status == '0' ? 'checked' : '' }} class="btn-check" id="blocked" type="radio" value="0" name="status">
-                            <label class="btn btn-sm btn-outline-danger" for="blocked"><i class="icofont-ban pe-2"></i>@lang('Block')</label>
-                            <input {{ $hospital->status != '0' ? 'checked' : '' }} class="btn-check" id="active" type="radio" value="1" name="status">
-                            <label class="btn btn-sm btn-outline-success" for="active"><i class="icofont-ui-check pe-2"></i>@lang('Active')</label>
+                            <input {{ $hospital->status == '0' ? 'checked' : '' }} class="btn-check" id="blocked"
+                                type="radio" value="0" name="status">
+                            <label class="btn btn-sm btn-outline-danger" for="blocked"><i
+                                    class="icofont-ban pe-2"></i>@lang('Block')</label>
+                            <input {{ $hospital->status != '0' ? 'checked' : '' }} class="btn-check" id="active"
+                                type="radio" value="1" name="status">
+                            <label class="btn btn-sm btn-outline-success" for="active"><i
+                                    class="icofont-ui-check pe-2"></i>@lang('Active')</label>
                         </div>
                         @error('status')
                             <span class="break p-2 text-danger">{{ $message }}</span>
