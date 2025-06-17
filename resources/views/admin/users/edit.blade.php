@@ -31,6 +31,17 @@
                         </div>
                     </div>
                     <div class="mb-3">
+                        <label for="image" class="form-label">@lang('Image')</label>
+                        <input type="file" class="form-control @error('image') is-invalid @enderror" id="image"
+                            name="image">
+                        @if ($user->image)
+                            <img salt="image" width="100px" src="{{ asset('storage/images/users/' . $user->image) }}">
+                        @endif
+                        @error('image')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
                         <label class="email" for="email">@lang('Email')</label>
                         <div class="input-group mb-3">
                             <input class="form-control" value="{{ $user->email }}" name="email" type="text" placeholder="@lang('Email')" aria-label="email" id="email">

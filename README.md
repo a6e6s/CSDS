@@ -71,9 +71,9 @@
   - [x] building admin CRUD for contacts 
   - [x] building admin CRUD for slides 
   - [x] building admin CRUD for cities
-  - [ ] building admin CRUD for hospitals
-  - [ ] building admin CRUD for specialities
-  - [ ] building admin CRUD for offers
+  - [x] building admin CRUD for hospitals
+  - [x] building admin CRUD for specialities
+  - [x] building admin CRUD for offers
   - [ ] building admin CRUD for doctors
   - [ ] building admin CRUD for reviews
   - [ ] building admin CRUD for available appointment

@@ -11,7 +11,7 @@ class UpdateDoctorRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,15 @@ class UpdateDoctorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required',
+            'title' => 'required',
+            'email' => 'required',
+            'password' => 'sometimes|required_with:password_repeat',
+            'status' => 'required',
+            'city_id' => 'required',
+            'hospital_id' => 'required',
+            'specialty_id' => 'required',
+            'cetifications' => 'nullable'
         ];
     }
 }

@@ -41,6 +41,10 @@ class UserController extends Controller
 
         $data = $request->input();
         $data['password'] = Hash::make($request->password);
+        if ($request->hasfile('image')) {
+            $data['image'] = 'image_' . rand(1000, 9999) . '.' . $request->file('image')->extension();
+            $request->file('image')->move(storage_path() . '/app/public/images/users/', $data['image']);
+        }
         if (User::create($data)) {
             return redirect()->route('users.index')->with('success',  __('Your form saved successfully'));
         } else {
@@ -72,6 +76,10 @@ class UserController extends Controller
         $data = $request->validated();
         if (!$request->password) unset($data['password']);
         if ($request->password) $data['password'] = Hash::make($request->password);
+        if ($request->hasfile('image')) {
+            $data['image'] = 'image_' . rand(1000, 9999) . '.' . $request->file('image')->extension();
+            $request->file('image')->move(storage_path() . '/app/public/images/users/', $data['image']);
+        }
         if (!$user->update($data)) {
             return redirect()->back()->with('error',  __('Error occurred while we trying to store your data. please try again'));
         }
