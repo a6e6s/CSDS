@@ -34,7 +34,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="name" for="name">@lang('Hospital name')</label>
+                        <label class="name" for="name">@lang('Hospital logo')</label>
                         <input type="file" class="form-control @error('logo') is-invalid @enderror" id="logo" name="logo">
                         @error('logo')
                             <div class="invalid-feedback">{{ $message }}</div>

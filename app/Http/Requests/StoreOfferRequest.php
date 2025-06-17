@@ -11,7 +11,7 @@ class StoreOfferRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,17 @@ class StoreOfferRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'end_at' => 'nullable',
+            'start_at' => 'nullable',
+            'title' => 'required',
+            'body' => 'required',
+            'price' => 'required',
+            'new_price' => 'required',
+            'hospital_id' => 'required',
+            'status' => 'required',
+            'end_at' => '',
+            'start_at' => '',
         ];
     }
 }

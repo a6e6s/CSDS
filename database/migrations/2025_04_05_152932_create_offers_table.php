@@ -24,7 +24,7 @@ return new class extends Migration
             $table->foreign('hospital_id')->references('id')->on('hospitals');
             $table->tinyInteger('status')->default(0);
             $table->dateTime('end_at');
-            $table->dateTime('start_date');
+            $table->dateTime('start_at');
             $table->timestamps();
         });
 

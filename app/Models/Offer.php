@@ -25,7 +25,7 @@ class Offer extends Model
         'hospital_id',
         'status',
         'end_at',
-        'start_date',
+        'start_at',
     ];
 
     /**
@@ -40,7 +40,7 @@ class Offer extends Model
         'hospital_id' => 'integer',
         'status' => 'integer',
         'end_at' => 'datetime',
-        'start_date' => 'datetime',
+        'start_at' => 'datetime',
     ];
 
     public function hospital(): BelongsTo
