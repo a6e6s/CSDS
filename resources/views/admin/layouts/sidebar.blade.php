@@ -15,12 +15,11 @@
                     class="nav-icon icofont-tasks"></i>@lang('Pages')</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ route('cities.index') }}"><i
                     class="nav-icon icofont-flag"></i>@lang('Cities')</a></li>
-        {{-- <li class="nav-item"><a class="nav-link" href="{{ route('clinics.index') }}"><i class="nav-icon icofont-hospital"></i>@lang('Clinics')</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ route('doctors.index') }}"><i class="nav-icon icofont-doctor"></i>@lang('Doctors')</a></li> --}}
-        {{-- <li class="nav-item"><a class="nav-link" href="{{ route('inqueries.index') }}"><i class="nav-icon icofont-envelope"></i>@lang('Inqueries')</a></li> --}}
         <li class="nav-item"><a class="nav-link" href="{{ route('contacts.index') }}"><i
                     class="nav-icon icofont-envelope"></i>@lang('Contacr us')</a></li>
 
+        <li class="nav-item"><a class="nav-link" href="{{ route('reviews.index') }}"><i
+                    class="nav-icon icofont-star"></i>@lang('Reviews')</a></li>
 
         <li class="nav-group"><a class="nav-link nav-group-toggle" href="#"><i
                     class="nav-icon icofont-hospital"></i> @lang('HIS')</a>
@@ -37,6 +36,8 @@
             </ul>
         </li>
 
+        <li class="nav-item"><a class="nav-link" href="{{ route('orders.index') }}"><i
+                    class="nav-icon icofont-tags"></i>@lang('Orders')</a></li>
         <li class="nav-group"><a class="nav-link nav-group-toggle" href="#"><i class="nav-icon icofont-gear"></i>
                 @lang('System')</a>
             <ul class="nav-group-items">

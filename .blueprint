@@ -1,40 +1,40 @@
 created:
-    - database/factories/HospitalFactory.php
-    - database/factories/UserFactory.php
-    - database/factories/DoctorFactory.php
-    - database/factories/CityFactory.php
-    - database/factories/SpecialtyFactory.php
-    - database/factories/SlideFactory.php
-    - database/factories/ContactFactory.php
-    - database/factories/PageFactory.php
-    - database/factories/OfferFactory.php
-    - database/factories/AvailableAppointmentFactory.php
-    - database/factories/ReviewFactory.php
-    - database/factories/OrderFactory.php
-    - database/migrations/2025_04_05_152924_create_hospitals_table.php
-    - database/migrations/2025_04_05_152925_create_users_table.php
-    - database/migrations/2025_04_05_152926_create_doctors_table.php
-    - database/migrations/2025_04_05_152927_create_cities_table.php
-    - database/migrations/2025_04_05_152928_create_specialties_table.php
-    - database/migrations/2025_04_05_152929_create_slides_table.php
-    - database/migrations/2025_04_05_152930_create_contacts_table.php
-    - database/migrations/2025_04_05_152931_create_pages_table.php
-    - database/migrations/2025_04_05_152932_create_offers_table.php
-    - database/migrations/2025_04_05_152933_create_available_appointments_table.php
-    - database/migrations/2025_04_05_152934_create_reviews_table.php
-    - database/migrations/2025_04_05_152935_create_orders_table.php
-    - app/Models/Hospital.php
-    - app/Models/User.php
-    - app/Models/Doctor.php
-    - app/Models/City.php
-    - app/Models/Specialty.php
-    - app/Models/Slide.php
-    - app/Models/Contact.php
-    - app/Models/Page.php
-    - app/Models/Offer.php
-    - app/Models/AvailableAppointment.php
-    - app/Models/Review.php
-    - app/Models/Order.php
+  - database/factories/HospitalFactory.php
+  - database/factories/UserFactory.php
+  - database/factories/DoctorFactory.php
+  - database/factories/CityFactory.php
+  - database/factories/SpecialtyFactory.php
+  - database/factories/SlideFactory.php
+  - database/factories/ContactFactory.php
+  - database/factories/PageFactory.php
+  - database/factories/OfferFactory.php
+  - database/factories/AvailableAppointmentFactory.php
+  - database/factories/ReviewFactory.php
+  - database/factories/OrderFactory.php
+  - database/migrations/2025_04_05_152924_create_hospitals_table.php
+  - database/migrations/2025_04_05_152925_create_users_table.php
+  - database/migrations/2025_04_05_152926_create_doctors_table.php
+  - database/migrations/2025_04_05_152927_create_cities_table.php
+  - database/migrations/2025_04_05_152928_create_specialties_table.php
+  - database/migrations/2025_04_05_152929_create_slides_table.php
+  - database/migrations/2025_04_05_152930_create_contacts_table.php
+  - database/migrations/2025_04_05_152931_create_pages_table.php
+  - database/migrations/2025_04_05_152932_create_offers_table.php
+  - database/migrations/2025_04_05_152933_create_available_appointments_table.php
+  - database/migrations/2025_04_05_152934_create_reviews_table.php
+  - database/migrations/2025_04_05_152935_create_orders_table.php
+  - app/Models/Hospital.php
+  - app/Models/User.php
+  - app/Models/Doctor.php
+  - app/Models/City.php
+  - app/Models/Specialty.php
+  - app/Models/Slide.php
+  - app/Models/Contact.php
+  - app/Models/Page.php
+  - app/Models/Offer.php
+  - app/Models/AvailableAppointment.php
+  - app/Models/Review.php
+  - app/Models/Order.php
 models:
     Hospital: { id: id, name: string, address: text, description: text, logo: 'string nullable', latitude: string, longitude: string, status: tinyInteger, phone: bigInteger }
     User: { id: id, name: string, email: string, password: string, type: 'enum:""admin"",""patient"" default:""patient""', image: 'string nullable', status: tinyInteger, dob: 'date nullable' }
@@ -47,4 +47,4 @@ models:
     Offer: { id: id, title: string, image: string, price: float, new_price: float, body: text, hospital_id: 'bigInteger foreign:hospitals.id', status: tinyInteger, end_at: dateTime, start_date: dateTime }
     AvailableAppointment: { id: id, user_id: bigInteger, date: dateTime, doctor_id: 'bigInteger foreign:doctors.id', status: tinyInteger }
     Review: { id: id, rating: integer, body: text, user_id: 'bigInteger foreign:users.id', doctor_id: 'bigInteger foreign:doctors.id', status: tinyInteger }
-    Order: { id: id, time: time, date: string, contact: string, patient: 'string foreign:users.id', notes: text, offer_id: 'bigInteger nullable foreign:offers.id', appointmet_id: 'bigInteger nullable foreign:available_appointments.id', user_id: bigInteger, status: tinyInteger }
+    Order: { id: id, time: time, date: string, contact: string, patient: 'string foreign:users.id', notes: text, offer_id: 'bigInteger nullable foreign:offers.id', appointment_id: 'bigInteger nullable foreign:available_appointments.id', user_id: bigInteger, status: tinyInteger }

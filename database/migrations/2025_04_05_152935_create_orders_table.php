@@ -22,8 +22,8 @@ return new class extends Migration
             $table->text('notes');
             $table->unsignedBigInteger('offer_id')->nullable();
             $table->foreign('offer_id')->references('id')->on('offers');
-            $table->unsignedBigInteger('appointmet_id')->nullable();
-            $table->foreign('appointmet_id')->references('id')->on('available_appointments');
+            $table->unsignedBigInteger('appointment_id')->nullable();
+            $table->foreign('appointment_id')->references('id')->on('available_appointments');
             $table->unsignedBigInteger('user_id');
             $table->tinyInteger('status')->default(0);
             $table->timestamps();

@@ -92,6 +92,6 @@ models:
     patient: string foreign:users.id
     notes: text
     offer_id: bigInteger nullable foreign:offers.id
-    appointmet_id: bigInteger nullable foreign:available_appointments.id
+    appointment_id: bigInteger nullable foreign:available_appointments.id
     user_id: bigInteger
     status: tinyInteger default:""0""

@@ -9,7 +9,6 @@
 @section('content')
     <div class="row">
         <div class="text-end pb-2">
-            <a href="{{ route('contacts.create') }}" class="col btn btn-sm btn-primary"><i class="icofont-plus"></i> @lang('Add New')</a>
         </div>
     </div>
     <div class="card">

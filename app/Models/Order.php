@@ -23,7 +23,7 @@ class Order extends Model
         'patient',
         'notes',
         'offer_id',
-        'appointmet_id',
+        'appointment_id',
         'user_id',
         'status',
     ];
@@ -36,12 +36,12 @@ class Order extends Model
     protected $casts = [
         'id' => 'integer',
         'offer_id' => 'integer',
-        'appointmet_id' => 'integer',
+        'appointment_id' => 'integer',
         'user_id' => 'integer',
         'status' => 'integer',
     ];
 
-    public function patient(): BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
@@ -51,7 +51,7 @@ class Order extends Model
         return $this->belongsTo(Offer::class);
     }
 
-    public function appointmet(): BelongsTo
+    public function appointment(): BelongsTo
     {
         return $this->belongsTo(AvailableAppointment::class);
     }

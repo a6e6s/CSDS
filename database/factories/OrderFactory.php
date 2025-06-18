@@ -30,7 +30,7 @@ class OrderFactory extends Factory
             'patient' => User::factory(),
             'notes' => fake()->text(),
             'offer_id' => Offer::factory(),
-            'appointmet_id' => AvailableAppointment::factory(),
+            'appointment_id' => AvailableAppointment::factory(),
             'user_id' => fake()->numberBetween(-100000, 100000),
             'status' => fake()->numberBetween(0, 1),
         ];
