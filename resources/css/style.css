@@ -685,6 +685,7 @@ a.intro_btn:hover {
 .doc_slider_item {
     display: block;
     background-repeat: no-repeat;
+    background-position: top center;
     padding-top: 283px;
     max-width: 262px;
     text-align: center;

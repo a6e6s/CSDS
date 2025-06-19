@@ -17,18 +17,25 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OfferController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AdminMiddleware;
+use App\Models\Hospital;
 use Illuminate\Support\Facades\Route;
 
 //home routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('doctor/{hospital}', [DoctorController::class, 'hospital'])->name('doctor.hospital');
+Route::get('doctors/search', [DoctorController::class, 'search'])->name('doctors.search');
 Route::get('doctors', [DoctorController::class, 'index'])->name('doctors');
+Route::get('doctor/show/{doctor}', [DoctorController::class, 'show'])->name('doctor.show');
 Route::get('offers', [OfferController::class, 'index'])->name('offers');
+Route::get('offer/show/{offer}', [OfferController::class, 'show'])->name('offer.show');
 Route::get('contact-us', [ContactController::class, 'create'])->name('contactus');
 Route::post('contact-us', [ContactController::class, 'store'])->name('contact.submit');
-Route::get('pages', [PageController::class, 'index'])->name('pages');
+Route::post('order', [OrderController::class, 'store'])->name('order.store');
+// Route::get('pages', [PageController::class, 'index'])->name('pages');
 Route::get('page/{page}', [PageController::class, 'show'])->name('page');
 
 // admin routes

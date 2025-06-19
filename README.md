@@ -74,14 +74,16 @@
   - [x] building admin CRUD for hospitals
   - [x] building admin CRUD for specialities
   - [x] building admin CRUD for offers
-  - [ ] building admin CRUD for doctors
-  - [ ] building admin CRUD for reviews
+  - [x] building admin CRUD for doctors
+  - [x] building admin CRUD for reviews
   - [ ] building admin CRUD for available appointment
-  - [ ] building admin VIEW for orders
+  - [x] building admin VIEW for orders
 
 ### front
-  - [ ] Search
-  - [ ] Doctor ,Appointments pages
+  - [x] Search
+  - [x] Doctor 
+  - [x] Doctors 
   - [ ] Doctor dashboard
+  - [ ] Appointments pages
   - [ ] offers ,offer pages
   - [ ] patient profile

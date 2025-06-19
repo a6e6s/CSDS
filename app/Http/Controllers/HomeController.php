@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use App\Models\Doctor;
 use App\Models\Offer;
 use App\Models\Slide;
@@ -22,58 +23,12 @@ class HomeController extends Controller
     public function index()
     {
         $slides =  Slide::where('status', 1)->get();
-        $doctors =  Doctor::where('status', 1)->get();
+        $doctors =  Doctor::where('status', 1)->take(10)->get(['id', 'name', 'image']);
         $offers =  Offer::where('status', 1)->orderBy('created_at', 'DESC')->take(4)->get();
-        $clinics =  Specialty::where('status', 1)->take(6)->get();
+        $specialties =  Specialty::where('status', 1)->take(6)->get();
+        $cities =  City::where('status', 1)->get(['id', 'name']);
         $settings =  collect([]);
-        return view('home.index', [ 'slides' => $slides, 'clinics' => $clinics, 'doctors' => $doctors, 'offers' => $offers, 'settings' => $settings]);
+        return view('home.index', ['slides' => $slides, 'specialties' => $specialties, 'doctors' => $doctors, 'offers' => $offers, 'cities' => $cities, 'settings' => $settings]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

@@ -86,11 +86,11 @@ models:
     status: tinyInteger default:""0""
   Order:
     id: id
-    time: time
-    date: string
+    time: time nullable
+    date: string nullable
     contact: string
     patient: string foreign:users.id
-    notes: text
+    notes: text nullable
     offer_id: bigInteger nullable foreign:offers.id
     appointment_id: bigInteger nullable foreign:available_appointments.id
     user_id: bigInteger

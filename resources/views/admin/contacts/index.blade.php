@@ -51,8 +51,8 @@
                         <td colspan="8" class="text-start bg-white">
                             <form action="{{ route('contacts.actions') }}" method="post" id="multi-actions-form">
                                 @csrf @method('PATCH')
-                                <button type="submit" value="1" name="blockAll" class="btn btn-sm btn-warning"><i class="icofont-ban"></i> @lang('Mark all read')</button>
-                                <button type="submit" value="1" name="ActivateAll" class="btn btn-sm btn-success"><i class="icofont-check-circled"></i> @lang('Mark all unread')</button>
+                                <button type="submit" value="1" name="blockAll" class="btn btn-sm btn-warning"><i class="icofont-ban"></i> @lang('Mark all unread')</button>
+                                <button type="submit" value="1" name="ActivateAll" class="btn btn-sm btn-success"><i class="icofont-check-circled"></i> @lang('Mark all read')</button>
                                 <button type="submit" onclick="return confirm('Are You Sure ?')"  value="1" name="DeleteAll" class="btn btn-sm btn-danger"><i class="icofont-trash"></i> @lang('Delete selected')</button>
                                 <input type="hidden" id="allrecords" name="allrecords">
                             </form>
@@ -63,7 +63,7 @@
                             <td class="text-start"><input name="record[]" class="form-check-checkbox me-2" onclick="isChecked()" type="checkbox" value="{{ $contact->id }}"> </td>
                             <td class="text-start">{{  $contact->name }}</td>
                             <td> {{ ucfirst($contact->email) }} </td>
-                            <td> {!! $contact->status ? '<i class="icofont-envelope text-success icofont-lg"></i>' : '<i class="icofont-envelope-open icofont-lg text-dark"></i>' !!}</td>
+                            <td> {!! $contact->status ? '<i class="icofont-envelope-open text-success icofont-lg"></i>' : '<i class="icofont-envelope icofont-lg text-dark"></i>' !!}</td>
                             <td> {{ optional($contact->created_at)->format('d-m-Y') }} </td>
                             <td>
                                 <div>

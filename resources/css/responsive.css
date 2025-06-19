@@ -1,5 +1,5 @@
 @media (min-width:1200px) {
-	
+
 }
 @media (max-width:75em) {
     a.page_scoll {
@@ -17,7 +17,7 @@
 		text-align: center;
 		font-size: 27px;
         padding: 15px 25px;
-        color: #CCA16A;
+        color: #222;
 	}
 	.main_menu > ul {
 		position: absolute;
@@ -31,14 +31,14 @@
 	}
 	.main_menu > ul li{
 		display: block;
-        margin:0 15px; 
+        margin:0 15px;
         text-align: right;
 	}
     .main_menu >ul>li:hover:before, .main_menu >ul>li.active:before {
         left: calc(100% - 35px);
     }
-	
-    
+
+
 	.main_menu li.has_submenu  ul.submenu,
     .main_menu li.has_submenu > ul.submenu li .submenu{
 		left: calc(100% + 1px);
@@ -60,12 +60,12 @@
     .main_menu li.has_submenu > ul.submenu a{
         padding-right: 30px;
     }
-    
+
 }
 @media (max-width:62em) {
-	
-    
-    
+
+
+
 }
 @media (max-width:48em) {
     .home_slider .carousel-item{
@@ -76,7 +76,7 @@
     .top_logo:after{
         display: none;
     }
-    
+
     .main_menu > ul > li.has_submenu > a:before, .main_menu > ul > li.has_submenu li.has_submenu > a::before {
         content: "\f107";
         right: auto;
@@ -91,7 +91,7 @@
 		position: relative;
 		height: 0;
 		padding: 0;
-        
+
 	}
 	.main_menu li.has_submenu:hover> ul.submenu,
 	.main_menu li.has_submenu  ul.submenu li:hover> .submenu{
@@ -106,18 +106,18 @@
     .main_menu li.has_submenu:hover >a {
         background: #EEE;
     }
-    
+
     .site_copyrights p,
     .footer_social{
         text-align: center;
     }
 }
 @media (max-width:34em) {
-    
+
     a.top_menu_btn{
         padding-left: 20px;
     }
 }
 @media (max-width:480px) {
-    
+
 }

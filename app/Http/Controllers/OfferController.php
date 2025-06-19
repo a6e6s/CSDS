@@ -12,7 +12,8 @@ class OfferController extends Controller
      */
     public function index()
     {
-        //
+        return view('home.offers.index', ['offers' => Offer::with('hospital')->where('status', 1)->get()]);
+
     }
 
     /**
@@ -36,6 +37,7 @@ class OfferController extends Controller
      */
     public function show(Offer $offer)
     {
+        return view('home.offers.show', ['offer' => $offer->with('hospital')->where('status', 1)->first()]);
         //
     }
 

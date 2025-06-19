@@ -18,9 +18,6 @@
         <li class="nav-item"><a class="nav-link" href="{{ route('contacts.index') }}"><i
                     class="nav-icon icofont-envelope"></i>@lang('Contacr us')</a></li>
 
-        <li class="nav-item"><a class="nav-link" href="{{ route('reviews.index') }}"><i
-                    class="nav-icon icofont-star"></i>@lang('Reviews')</a></li>
-
         <li class="nav-group"><a class="nav-link nav-group-toggle" href="#"><i
                     class="nav-icon icofont-hospital"></i> @lang('HIS')</a>
             <ul class="nav-group-items">
@@ -38,6 +35,10 @@
 
         <li class="nav-item"><a class="nav-link" href="{{ route('orders.index') }}"><i
                     class="nav-icon icofont-tags"></i>@lang('Orders')</a></li>
+
+        <li class="nav-item"><a class="nav-link" href="{{ route('reviews.index') }}"><i
+                    class="nav-icon icofont-star"></i>@lang('Reviews')</a></li>
+
         <li class="nav-group"><a class="nav-link nav-group-toggle" href="#"><i class="nav-icon icofont-gear"></i>
                 @lang('System')</a>
             <ul class="nav-group-items">

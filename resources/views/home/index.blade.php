@@ -7,7 +7,8 @@
             <div class="banners">
                 @if ($slides)
                     @foreach ($slides as $b => $banner)
-                        <div class="-item @if (!$b) active @endif" style="background-image: url({{ asset('images/slide1.jpg') }});">
+                        <div class="-item @if (!$b) active @endif"
+                            style="background-image: url({{ asset('images/slide1.jpg') }});">
                             <div class="container h-100">
                                 <div class="row align-items-center h-100">
                                     <div class="col-xl-6 col-lg-6  col-md-5 col-12 me-5">
@@ -15,13 +16,15 @@
                                             <h4 class="display-3">{{ $banner->title }}</h4>
                                             <p class="lh-3">{{ $banner->subtitle }}</p>
                                             @if ($banner->url)
-                                                <a href="{{ $banner->url }}" class="h_slider_btn me-5"> احجز الآن <i class="icofont icofont-rounded-double-left ms-3"></i></a>
+                                                <a href="{{ $banner->url }}" class="h_slider_btn me-5"> احجز الآن <i
+                                                        class="icofont icofont-rounded-double-left ms-3"></i></a>
                                             @endif
                                         </div>
                                     </div>
                                     <!--end col-->
                                     <div class="col-xl-4 col-lg-5 col-md-6 col-12 ms-auto align-self-end">
-                                        <div class="h_slide_img fadeInUp"><img src="{{ asset('storage/images/slides/' . $banner->image) }}"></div>
+                                        <div class="h_slide_img fadeInUp"><img
+                                                src="{{ asset('storage/images/slides/' . $banner->image) }}"></div>
                                     </div>
                                     <!--end col-->
                                 </div>
@@ -74,25 +77,28 @@
                 <div class="col-xl-5 ml-xl-auto col-12 mx-auto">
                     <div class="bg-white  text-center">
                         <div class="card-body border-2">
-                            <form action="" method="post" class="p-5 my-5">
+                            <form action="{{ route('doctors.search') }}" method="get" class="p-5 my-5">
                                 <div class="mb-5">
-                                    <select class="form-select form-select-lg text-secondary py-3" name="" id="">
-                                        <option selected>اختار المدينة</option>
-                                        <option value="">New Delhi</option>
-                                        <option value="">Istanbul</option>
-                                        <option value="">Jakarta</option>
+                                    <select class="form-select form-select-lg text-secondary py-3" name="city_id"
+                                        id="">
+                                        <option selected value="">اختار المدينة</option>
+                                        @foreach ($cities as $city)
+                                            <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="mb-5">
-                                    <select class="form-select form-select-lg text-secondary py-3" name="" id="">
-                                        <option selected>اختار التخصص</option>
-                                        <option value="">New Delhi</option>
-                                        <option value="">Istanbul</option>
-                                        <option value="">Jakarta</option>
+                                    <select class="form-select form-select-lg text-secondary py-3" name="specialty_id"
+                                        id="">
+                                        <option selected value="">اختار التخصص</option>
+                                        @foreach ($specialties as $specialty)
+                                            <option value="{{ $specialty->id }}">{{ $specialty->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="mb-5">
-                                    <input type="text" class="form-control form-control-lg text-secondary py-3" name="" id="" placeholder="او ابحث باسم الطبيب" />
+                                    <input type="text" class="form-control form-control-lg text-secondary py-3"
+                                        name="doctor" id="" placeholder="او ابحث باسم الطبيب" />
                                 </div>
                                 <button type="submit" class="btn h_slider_btn">
                                     ابحث
@@ -134,11 +140,12 @@
                 <div class="col">
                     <div class="doctors_slider w-100 wow fadeInUp" data-wow-delay="0.7s">
                         @foreach ($doctors as $doctor)
-                            <a href="##">
+                            <a href="{{ route('doctor.show', $doctor->id) }}">
                                 <div class="slick_slider_item">
-                                    <div class="doc_slider_item" style="background-image: url({{ asset('storage/images/doctors/' . $doctor->image) }})">
+                                    <div class="doc_slider_item text-center bg-light"
+                                        style="background-image: url({{ asset('storage/images/doctors/' . $doctor->image) }})">
                                         <h4>{{ $doctor->name }} </h4>
-                                        <p>{{ optional($doctor->clinic)->title }}</p>
+                                        <p>{{ optional($doctor->specialty)->title }}</p>
                                     </div>
                                     <!--end doc_slider_item-->
                                 </div>
@@ -150,6 +157,10 @@
                 </div>
                 <!--end col-->
             </div>
+            <div class="col text-center">
+                <a href="{{ route('doctors') }}" class="more_btn theme_btn wow flipInX" data-wow-delay="0.9s"> المزيد
+                    <i class="icofont icofont-rounded-double-left ms-3"></i></a>
+            </div>
             <!--end row -->
         </div>
         <!--end container-->
@@ -157,7 +168,7 @@
     </section>
     {{-- @endisset --}}
     <!--end doctors-->
-    {{-- @isset($settings['theme']->meta->clinics_show) --}}
+    {{-- @isset($settings['theme']->meta->specialties_show) --}}
     <section class="home_services py-5 mt-5">
         <div class="container">
             <div class="row">
@@ -165,7 +176,8 @@
                     <div class="text-center pb-4 mb-5 wow bounceIn" data-wow-delay="0.5s">
                         <img src="images/logosmall.png">
                         <h3 class="text-white">الاقسام الطبية </h3>
-                        <p class="text-green">أكثر من 25 إستشاري و ٣٠ من مقدمي الخدمات الصحية يعملون معاً لخدمتكم في جميع التخصصات </p>
+                        <p class="text-green">أكثر من 25 إستشاري و ٣٠ من مقدمي الخدمات الصحية يعملون معاً لخدمتكم في جميع
+                            التخصصات </p>
                     </div>
                     <!--end sec_title-->
                 </div>
@@ -173,13 +185,15 @@
             </div>
             <!--end row -->
             <div class="row">
-                @foreach ($clinics as $c => $clinic)
+                @foreach ($specialties as $c => $specialty)
                     <div class="col-lg-4 col-sm-6 col-12">
                         <div class="serv_block wow fadeInUp" data-wow-delay="0.{{ 2 * $c + 5 }}s">
-                            <a href="##"><img src="{{ asset('storage/images/clinics/' . $clinic->image) }}"></a>
-                            <a href="##" class="serv_title">
-                                {{ $clinic->name }}
-                                <span>{{ mb_substr(strip_tags($clinic->description), 0, 100) }}</span>
+                            <a href="{{ route('doctors.search', ['specialty_id' => $specialty->id]) }}"><img
+                                    src="{{ asset('storage/images/specialties/' . $specialty->logo) }}"></a>
+                            <a href="{{ route('doctors.search', ['specialty_id' => $specialty->id]) }}"
+                                class="serv_title">
+                                {{ $specialty->name }}
+                                <span>{{ mb_substr(strip_tags($specialty->description), 0, 100) }}</span>
                             </a>
                         </div>
                         <!--end serv_block-->
@@ -213,11 +227,12 @@
                 @foreach ($offers as $offer)
                     <div class="col-xxl-3 col-md-6 col-12">
                         <div class="blog_item mx-auto wow zoomIn" data-wow-delay="0.5s">
-                            <a href="##" class="blog_img">
+                            <a href="{{ route('offer.show', ['offer' => $offer->id]) }}" class="blog_img">
                                 <img src="{{ asset('storage/images/offers/' . $offer->image) }}">
                                 <span>{{ optional($offer->created_at)->format('d/m Y') }}</span>
                             </a>
-                            <a href="##" class="blog_title">{{ $offer->title }}</a>
+                            <a href="{{ route('offer.show', ['offer' => $offer->id]) }}"
+                                class="blog_title">{{ $offer->title }}</a>
                         </div>
                         <!--end blog_item-->
                     </div>
@@ -228,7 +243,8 @@
             <!--end row -->
             <div class="row">
                 <div class="col text-center">
-                    <a href="{{ route('offers') }}" class="more_btn theme_btn wow flipInX" data-wow-delay="0.9s"> المزيد <i class="icofont icofont-rounded-double-left ms-3"></i></a>
+                    <a href="{{ route('offers') }}" class="more_btn theme_btn wow flipInX" data-wow-delay="0.9s"> المزيد
+                        <i class="icofont icofont-rounded-double-left ms-3"></i></a>
                 </div>
                 <!--end col-->
             </div>

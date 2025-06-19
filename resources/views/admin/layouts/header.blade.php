@@ -57,7 +57,7 @@
             <ol class="breadcrumb my-0 ms-2">
                 <li class="breadcrumb-item">
                     <!-- if breadcrumb is single-->
-                    <span>@lang('Home page')</span>
+                    <span><a class="text-dark" href="{{ route('dashboard') }}">@lang('Dashboard')</a></span>
                 </li>
                 @yield('breadcrumbs')
             </ol>
