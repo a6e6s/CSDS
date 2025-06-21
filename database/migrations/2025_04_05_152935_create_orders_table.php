@@ -15,11 +15,11 @@ return new class extends Migration
 
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->time('time');
-            $table->string('date');
-            $table->string('contact');
-            $table->string('patient');
-            $table->text('notes');
+            $table->time('time')->nullable();
+            $table->string('date')->nullable();
+            $table->string('contact')->nullable();
+            $table->string('patient')->nullable();
+            $table->text('notes')->nullable();
             $table->unsignedBigInteger('offer_id')->nullable();
             $table->foreign('offer_id')->references('id')->on('offers');
             $table->unsignedBigInteger('appointment_id')->nullable();

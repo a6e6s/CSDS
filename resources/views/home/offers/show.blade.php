@@ -66,7 +66,7 @@
                                 <div class="mb-3">
                                     <label for="contact" class="form-label">رقم التواصل</label>
                                     <input type="text" class="form-control" name="contact" id="contact"
-                                        value="{{ old('contact') }}" aria-describedby="helpId" placeholder="الاسم بالكامل" />
+                                        value="{{ old('contact') }}" aria-describedby="helpId" placeholder="رقم التواصل" />
                                     @error('contact')
                                         <small id="helpId" class="form-text text-danger">{{ $message }}</small>
                                     @enderror

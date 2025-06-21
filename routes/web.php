@@ -21,12 +21,13 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Middleware\DoctorIsAuthenticated;
 use App\Models\Hospital;
 use Illuminate\Support\Facades\Route;
 
 //home routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('doctor/{hospital}', [DoctorController::class, 'hospital'])->name('doctor.hospital');
+Route::get('doctor/hospital/{hospital}', [DoctorController::class, 'hospital'])->name('doctor.hospital');
 Route::get('doctors/search', [DoctorController::class, 'search'])->name('doctors.search');
 Route::get('doctors', [DoctorController::class, 'index'])->name('doctors');
 Route::get('doctor/show/{doctor}', [DoctorController::class, 'show'])->name('doctor.show');
@@ -78,6 +79,24 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', AdminMiddleware::cla
     Route::patch('orders/actions', [AdminOrderController::class, 'actions'])->name('orders.actions');
     Route::resource('orders', AdminOrderController::class);
 });
+
+// doctor routs
+Route::group(['prefix' => 'doctor'], function () {
+    Route::get('login', [DoctorController::class, 'login'])->name("doctor.login");
+    Route::post('signin', [DoctorController::class, "signin"])->name('doctor.signin');
+
+    Route::get('register', [DoctorController::class, 'register'])->name("doctor.register");
+    Route::post('signup', [DoctorController::class, "signup"])->name('doctor.signup');
+
+// doctor only area
+    Route::middleware(DoctorIsAuthenticated::class)->group(function () {
+        Route::get('dashboard', [DoctorController::class, 'dashboard'])->name("doctor.dashboard");
+
+        Route::get('appointment', [DoctorController::class, 'appointment'])->name("doctor.appointment");
+        Route::post('appointment.store', [DoctorController::class, 'store'])->name("doctor.appointment.store");
+    });
+});
+
 
 Route::view('login', 'auth.login')->name("login");
 Route::post('signin', [UserController::class, "signin"])->name('signin');

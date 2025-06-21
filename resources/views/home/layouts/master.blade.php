@@ -77,6 +77,8 @@
                                         @guest
                                             <li><a href="{{ route('login') }}" title="تسجيل الدخول"><i class="icofont icofont-user mx-2"></i></a></li>
                                         @endguest
+                                            <li><a href="{{ route('doctor.login') }}" title="لوحة الطبيب"><i class="icofont icofont-doctor mx-2"></i></a></li>
+
                                     </ul>
                                 </div>
                                 <!--end col-->
