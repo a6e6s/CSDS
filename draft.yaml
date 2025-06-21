@@ -73,7 +73,7 @@ models:
     start_date: dateTime
   AvailableAppointment:
     id: id
-    user_id: bigInteger
+    user_id: bigInteger nullable
     date: dateTime
     doctor_id: bigInteger foreign:doctors.id
     status: tinyInteger default:""0""
