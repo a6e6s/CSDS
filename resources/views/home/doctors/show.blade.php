@@ -34,7 +34,7 @@
                                 <div class="col-6 text-start">المدينة : {{ $doctor->city->name }}</div>
                             </div>
                             <h6 class="p-3">معلومات عن الدكتور</h6>
-                            <p class="card-text">{{ $doctor->cetifications }}</p>
+                            <p class="card-text">{{ $doctor->certifications }}</p>
 
 
                         </div>

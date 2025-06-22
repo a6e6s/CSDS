@@ -25,7 +25,7 @@ models:
     email: string
     password: string
     image: string nullable
-    cetifications: text nullable
+    certifications: text nullable
     hospital_id: bigInteger foreign:hospitals.id
     specialty_id: bigInteger foreign:specialties.id
     city_id: bigInteger foreign:cities.id
@@ -70,7 +70,7 @@ models:
     hospital_id: bigInteger foreign:hospitals.id
     status: tinyInteger default:""0""
     end_at: dateTime
-    start_date: dateTime
+    start_at: dateTime
   AvailableAppointment:
     id: id
     user_id: bigInteger nullable

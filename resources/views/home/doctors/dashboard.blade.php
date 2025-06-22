@@ -14,7 +14,6 @@
                                     src="{{ asset('storage/images/doctors/' . $doctor->image) }}"
                                     alt="{{ $doctor->name }}" />
                             </a>
-
                         </div>
                     </div>
                     <div class="menu my-3">
@@ -22,7 +21,7 @@
                             aria-controls="home" aria-selected="true"> الملف الشخصي </a>
                         <a href="{{ route('doctor.appointment') }}" class="btn btn-info col-12 mb-3 text-light" id="home-tab" type="button" role="tab"
                             aria-controls="home" aria-selected="true"> ادارة المواعيد </a>
-                        <a href="{{ route('doctor.dashboard') }}" class="btn btn-danger col-12 mb-3 text-light" id="home-tab" type="button" role="tab"
+                        <a href="{{ route('doctor.logout') }}" class="btn btn-danger col-12 mb-3 text-light" id="home-tab" type="button" role="tab"
                             aria-controls="home" aria-selected="true"> تسجيل الخروج </a>
 
                     </div>
@@ -43,7 +42,7 @@
                                 <div class="col-6 text-start">المدينة : {{ $doctor->city->name }}</div>
                             </div>
                             <h6 class="p-3">معلومات عن الدكتور</h6>
-                            <p class="card-text">{{ $doctor->cetifications }}</p>
+                            <p class="card-text">{{ $doctor->certifications }}</p>
                         </div>
                     </div>
                 </div>

@@ -38,13 +38,13 @@ created:
 models:
     Hospital: { id: id, name: string, address: text, description: text, logo: 'string nullable', latitude: string, longitude: string, status: tinyInteger, phone: bigInteger }
     User: { id: id, name: string, email: string, password: string, type: 'enum:""admin"",""patient"" default:""patient""', image: 'string nullable', status: tinyInteger, dob: 'date nullable' }
-    Doctor: { id: 'id foreign:available_appointments.doctor_id', name: string, title: 'string nullable', email: string, password: string, image: 'string nullable', cetifications: 'text nullable', hospital_id: 'bigInteger foreign:hospitals.id', specialty_id: 'bigInteger foreign:specialties.id', city_id: 'bigInteger foreign:cities.id', status: tinyInteger, updated_at: dateTime }
+    Doctor: { id: 'id foreign:available_appointments.doctor_id', name: string, title: 'string nullable', email: string, password: string, image: 'string nullable', certifications: 'text nullable', hospital_id: 'bigInteger foreign:hospitals.id', specialty_id: 'bigInteger foreign:specialties.id', city_id: 'bigInteger foreign:cities.id', status: tinyInteger, updated_at: dateTime }
     City: { id: id, name: string, status: tinyInteger }
     Specialty: { id: id, name: string, description: text, logo: 'string nullable', status: tinyInteger }
     Slide: { id: id, title: 'string nullable', subtitle: 'string:1000 nullable', image_alt: 'string nullable', image: string, url: 'string nullable', status: tinyInteger }
     Contact: { id: id, name: string, email: string, body: mediumInteger, status: tinyInteger }
     Page: { id: id, title: string, body: mediumInteger, status: tinyInteger }
-    Offer: { id: id, title: string, image: string, price: float, new_price: float, body: text, hospital_id: 'bigInteger foreign:hospitals.id', status: tinyInteger, end_at: dateTime, start_date: dateTime }
+    Offer: { id: id, title: string, image: string, price: float, new_price: float, body: text, hospital_id: 'bigInteger foreign:hospitals.id', status: tinyInteger, end_at: dateTime, start_at: dateTime }
     AvailableAppointment: { id: id, user_id: bigInteger, date: dateTime, doctor_id: 'bigInteger foreign:doctors.id', status: tinyInteger }
     Review: { id: id, rating: integer, body: text, user_id: 'bigInteger foreign:users.id', doctor_id: 'bigInteger foreign:doctors.id', status: tinyInteger }
     Order: { id: id, time: time, date: string, contact: string, patient: 'string foreign:users.id', notes: text, offer_id: 'bigInteger nullable foreign:offers.id', appointment_id: 'bigInteger nullable foreign:available_appointments.id', user_id: bigInteger, status: tinyInteger }

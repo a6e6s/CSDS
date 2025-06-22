@@ -22,7 +22,7 @@ class Doctor extends Model
         'email',
         'password',
         'image',
-        'cetifications',
+        'certifications',
         'hospital_id',
         'specialty_id',
         'city_id',
@@ -45,11 +45,6 @@ class Doctor extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'hospital_id' => 'integer',
-        'specialty_id' => 'integer',
-        'city_id' => 'integer',
-        'status' => 'integer',
-        'updated_at' => 'datetime',
     ];
 
     public function availableAppointment(): BelongsTo

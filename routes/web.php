@@ -84,11 +84,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', AdminMiddleware::cla
 Route::group(['prefix' => 'doctor'], function () {
     Route::get('login', [DoctorController::class, 'login'])->name("doctor.login");
     Route::post('signin', [DoctorController::class, "signin"])->name('doctor.signin');
+    Route::get('logout', [DoctorController::class, "logout"])->name('doctor.logout');
 
     Route::get('register', [DoctorController::class, 'register'])->name("doctor.register");
     Route::post('signup', [DoctorController::class, "signup"])->name('doctor.signup');
 
-// doctor only area
+    // doctor only area
     Route::middleware(DoctorIsAuthenticated::class)->group(function () {
         Route::get('dashboard', [DoctorController::class, 'dashboard'])->name("doctor.dashboard");
 
@@ -96,7 +97,6 @@ Route::group(['prefix' => 'doctor'], function () {
         Route::post('appointment.store', [DoctorController::class, 'store'])->name("doctor.appointment.store");
     });
 });
-
 
 Route::view('login', 'auth.login')->name("login");
 Route::post('signin', [UserController::class, "signin"])->name('signin');

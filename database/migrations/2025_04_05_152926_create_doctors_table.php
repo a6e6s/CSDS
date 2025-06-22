@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('image')->nullable();
-            $table->text('cetifications')->nullable();
+            $table->text('certifications')->nullable();
             $table->unsignedBigInteger('hospital_id');
             $table->foreign('hospital_id')->references('id')->on('hospitals');
             $table->unsignedBigInteger('specialty_id');

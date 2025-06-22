@@ -30,7 +30,7 @@ class OfferFactory extends Factory
             'hospital_id' => Hospital::factory(),
             'status' => fake()->numberBetween(0, 1),
             'end_at' => fake()->dateTime(),
-            'start_date' => fake()->dateTime(),
+            'start_at' => fake()->dateTime(),
         ];
     }
 }

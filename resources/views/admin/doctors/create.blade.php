@@ -83,11 +83,11 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label class="cetifications" for="cetifications">@lang('Cetifications')</label>
+                        <label class="certifications" for="certifications">@lang('certifications')</label>
                         <div class="input-group mb-3">
-                            <textarea class="form-control" name="cetifications" placeholder="@lang('Cetifications')" aria-label="cetifications"
-                                rows="5" id="cetifications">{{ old('cetifications') }}</textarea>
-                            @error('cetifications')
+                            <textarea class="form-control" name="certifications" placeholder="@lang('certifications')" aria-label="certifications"
+                                rows="5" id="certifications">{{ old('certifications') }}</textarea>
+                            @error('certifications')
                                 <span class="break p-2 text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -102,7 +102,7 @@
                     <div class="mb-3">
                         <label for="" class="form-label">@lang('City')</label>
                         <select class="form-select " name="city_id" id="city_id">
-                            <option selected>Select one</option>
+                            <option value="" selected>Select one</option>
                             @foreach ($cities as $city)
                                 <option @selected(old('city_id') == $city->id) value="{{ $city->id }}">{{ $city->name }}
                                 </option>
@@ -112,7 +112,7 @@
                     <div class="mb-3">
                         <label for="" class="form-label">@lang('Hospital')</label>
                         <select class="form-select " name="hospital_id" id="hospital_id">
-                            <option selected>Select one</option>
+                            <option value="" selected>Select one</option>
                             @foreach ($hospitals as $hospital)
                                 <option @selected(old('hospital_id') == $hospital->id) value="{{ $hospital->id }}">{{ $hospital->name }}
                                 </option>
@@ -122,7 +122,7 @@
                     <div class="mb-3">
                         <label for="" class="form-label">@lang('Specialty')</label>
                         <select class="form-select " name="specialty_id" id="specialty_id">
-                            <option selected>Select one</option>
+                            <option value="" selected>Select one</option>
                             @foreach ($specialties as $specialty)
                                 <option @selected(old('specialty_id') == $specialty->id) value="{{ $specialty->id }}">{{ $specialty->name }}
                                 </option>

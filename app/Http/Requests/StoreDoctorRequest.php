@@ -31,7 +31,7 @@ class StoreDoctorRequest extends FormRequest
             'city_id' => 'required',
             'hospital_id' => 'required',
             'specialty_id' => 'required',
-            'cetifications' => 'nullable'
+            'certifications' => 'nullable'
         ];
     }
 }

@@ -29,7 +29,7 @@ class DoctorFactory extends Factory
             'email' => fake()->safeEmail(),
             'password' => fake()->password(),
             'image' => fake()->word(),
-            'cetifications' => fake()->text(),
+            'certifications' => fake()->text(),
             'hospital_id' => Hospital::factory(),
             'specialty_id' => Specialty::factory(),
             'city_id' => City::factory(),

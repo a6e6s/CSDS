@@ -42,11 +42,11 @@ class DoctorController extends Controller
      */
     public function show(Doctor $doctor)
     {
-        $appointments = AvailableAppointment::where('date', '>', date('Y-m-d h:i'))->where('doctor_id', session()->get('doctor')->id)->orderBy('date')->get();
+        $appointments = AvailableAppointment::where('date', '>', date('Y-m-d h:i'))->where('doctor_id', $doctor->id)->orderBy('date')->get();
         $appt = $appointments->groupBy(function ($appt) {
             return $appt->date->format('Y-m-d'); // Group by full date
         });
-        return view('home.doctors.show', ['doctor' => $doctor->with('hospital')->where('status', 1)->first(), 'appt'=>$appt]);
+        return view('home.doctors.show', ['doctor' => $doctor->with('hospital')->where('status', 1)->first(), 'appt' => $appt]);
     }
 
     /**
@@ -145,6 +145,15 @@ class DoctorController extends Controller
         }
     }
     /**
+     * logout the doctor and clear session
+     */
+    public function logout(Request $request)
+    {
+        $request->session()->forget('doctor');
+        return redirect()->route('doctor.login');
+    }
+
+    /**
      * display register form view after loading the specialties
      *
      * @return void
@@ -173,7 +182,7 @@ class DoctorController extends Controller
             'city_id' => 'required',
             'hospital_id' => 'required',
             'specialty_id' => 'required',
-            'cetifications' => 'nullable'
+            'certifications' => 'nullable'
         ]);
         $data = $request->input();
         $data['password'] = Hash::make($request->password);

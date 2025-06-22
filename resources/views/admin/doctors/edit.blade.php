@@ -89,11 +89,11 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="cetifications" for="cetifications">@lang('Cetifications')</label>
+                        <label class="certifications" for="certifications">@lang('certifications')</label>
                         <div class="input-group mb-3">
-                            <textarea class="form-control" name="cetifications" placeholder="@lang('Cetifications')" aria-label="cetifications"
-                                rows="5" id="cetifications">{{ $doctor->cetifications }}</textarea>
-                            @error('cetifications')
+                            <textarea class="form-control" name="certifications" placeholder="@lang('certifications')" aria-label="certifications"
+                                rows="5" id="certifications">{{ $doctor->certifications }}</textarea>
+                            @error('certifications')
                                 <span class="break p-2 text-danger">{{ $message }}</span>
                             @enderror
                         </div>
