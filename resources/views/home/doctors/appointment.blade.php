@@ -87,7 +87,7 @@
                     <h1 class="h5">ادارة المواعيد</h1>
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Title</h4>
+                            <h4 class="card-title">المواعيد</h4>
                             <div class="card-text row">
                                 @foreach ($appointmentsByDate as $date => $appointmentsOnSameDay)
                                     <div class="fw-bold me-3 btn btn-dark col-2">

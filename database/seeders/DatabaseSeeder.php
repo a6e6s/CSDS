@@ -655,9 +655,9 @@ class DatabaseSeeder extends Seeder
         // Hospital::factory(10)->create();
         // Offer::factory(10)->create();
         // Order::factory(10)->create();
-        Page::factory(10)->create();
+        // Page::factory(10)->create();
         Review::factory(10)->create();
-        Slide::factory(3)->create();
+        // Slide::factory(3)->create();
         // Specialty::factory(10)->create();
         // User::factory(5)->create();
     }
